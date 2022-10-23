@@ -107,6 +107,12 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listLevels = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
+            this.tabResult = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.labelRatingSummary = new System.Windows.Forms.Label();
+            this.imgResultPlayerIcon = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -132,6 +138,12 @@
             this.panel2.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -629,7 +641,7 @@
             this.groupBox6.Controls.Add(this.levelSwitchContainer);
             this.groupBox6.Location = new System.Drawing.Point(309, 125);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(97, 300);
+            this.groupBox6.Size = new System.Drawing.Size(97, 303);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "难度选择";
@@ -639,7 +651,7 @@
             this.levelSwitchContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.levelSwitchContainer.Location = new System.Drawing.Point(3, 17);
             this.levelSwitchContainer.Name = "levelSwitchContainer";
-            this.levelSwitchContainer.Size = new System.Drawing.Size(91, 280);
+            this.levelSwitchContainer.Size = new System.Drawing.Size(91, 283);
             this.levelSwitchContainer.TabIndex = 0;
             // 
             // imgMusicCover
@@ -1045,12 +1057,74 @@
             // 
             this.tabControl1.Controls.Add(this.tabLevel);
             this.tabControl1.Controls.Add(this.tabChara);
+            this.tabControl1.Controls.Add(this.tabResult);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(944, 572);
             this.tabControl1.TabIndex = 5;
+            // 
+            // flusherResultPage
+            // 
+            this.flusherResultPage.Interval = 20;
+            this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
+            // 
+            // tabResult
+            // 
+            this.tabResult.Controls.Add(this.splitContainer2);
+            this.tabResult.Location = new System.Drawing.Point(4, 22);
+            this.tabResult.Name = "tabResult";
+            this.tabResult.Padding = new System.Windows.Forms.Padding(3);
+            this.tabResult.Size = new System.Drawing.Size(936, 546);
+            this.tabResult.TabIndex = 4;
+            this.tabResult.Text = "查分";
+            this.tabResult.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox8);
+            this.splitContainer2.Size = new System.Drawing.Size(930, 540);
+            this.splitContainer2.SplitterDistance = 375;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.imgResultPlayerIcon);
+            this.groupBox8.Controls.Add(this.labelRatingSummary);
+            this.groupBox8.Location = new System.Drawing.Point(5, 3);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(367, 103);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "总览";
+            // 
+            // labelRatingSummary
+            // 
+            this.labelRatingSummary.AutoSize = true;
+            this.labelRatingSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRatingSummary.Location = new System.Drawing.Point(3, 17);
+            this.labelRatingSummary.Name = "labelRatingSummary";
+            this.labelRatingSummary.Size = new System.Drawing.Size(215, 72);
+            this.labelRatingSummary.TabIndex = 0;
+            this.labelRatingSummary.Text = "Rating: 1145.14 (历史最高: 1919.81)\r\nB30: 1919\r\nR10: 6666\r\nB31-40: 7777\r\n保底Rating: 88" +
+    "88\r\n不推分最高Rating: 9999";
+            // 
+            // imgResultPlayerIcon
+            // 
+            this.imgResultPlayerIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgResultPlayerIcon.Location = new System.Drawing.Point(281, 17);
+            this.imgResultPlayerIcon.Name = "imgResultPlayerIcon";
+            this.imgResultPlayerIcon.Size = new System.Drawing.Size(80, 80);
+            this.imgResultPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgResultPlayerIcon.TabIndex = 2;
+            this.imgResultPlayerIcon.TabStop = false;
             // 
             // Main
             // 
@@ -1098,6 +1172,13 @@
             this.panel2.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabResult.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1182,6 +1263,12 @@
         private System.Windows.Forms.ListBox listLevels;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.GroupBox grpCharaImgDescrip;
+        private System.Windows.Forms.Timer flusherResultPage;
+        private System.Windows.Forms.TabPage tabResult;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.PictureBox imgResultPlayerIcon;
+        private System.Windows.Forms.Label labelRatingSummary;
     }
 }
 

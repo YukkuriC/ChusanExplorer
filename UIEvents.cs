@@ -11,5 +11,6 @@ namespace ChusanExplorer
         public static Action<Pack> PackChoiceChanged;
         public static Action CharaListApply, MusicListApply;
         public static Action PlayerCharaProfileChanged;
+        public static Action RefreshResultPage;
     }
 }

@@ -8,11 +8,12 @@ namespace ChusanExplorer
 {
     public static class PlayerCharaProfileLoader
     {
-        public static void SetPlayerChoice()
+        public static void SetPlayerChoice(Character chara = null)
         {
-            var activeProfile = Selected.chara.GetProfile();
+            if (chara == null) chara = Selected.chara;
+            var activeProfile = chara.GetProfile();
             DBLoader.Write($"update chusan_user_data set character_id={Selected.chara.id},chara_illust_id={activeProfile.illustId} where id={Selected.player.id}");
-            Selected.player.chara = Selected.chara.id;
+            Selected.player.chara = chara.id;
             UIEvents.PlayerCharaProfileChanged.Invoke();
         }
 

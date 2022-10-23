@@ -74,6 +74,21 @@ namespace ChusanExplorer
                 choosePlayer.Enabled = choosePlayer.Items.Count > 0;
             };
 
+            #region flushers
+            UIEvents.PlayerCharaProfileChanged += () =>
+            {
+                flusherCharaProfile.Enabled = true;
+                if (Selected.chara != null && Selected.chara.GetProfile() == null && Selected.chara.id == Selected.player?.chara) // 玩家选定角色被撅了
+                {
+                    PlayerCharaProfileLoader.SetPlayerChoice(Storage.Characters.Values.First((Character c) => c.GetProfile() != null));
+                    refreshResultPageImages();
+                }
+            };
+            UIEvents.CharaListApply += () => flusherCharaList.Enabled = true;
+            UIEvents.MusicListApply += () => flusherMusicList.Enabled = true;
+            UIEvents.RefreshResultPage += () => flusherResultPage.Enabled = true;
+            #endregion
+
             #region tab chara
             CharacterListLoader.Loaded += () =>
             {
@@ -85,8 +100,6 @@ namespace ChusanExplorer
                 chooseCharaType.SelectedIndex = 0;
                 UIEvents.CharaListApply.Invoke();
             };
-            UIEvents.PlayerCharaProfileChanged += () => flusherCharaProfile.Enabled = true;
-            UIEvents.CharaListApply += () => flusherCharaList.Enabled = true;
             #endregion
 
             #region tab music
@@ -124,7 +137,6 @@ namespace ChusanExplorer
                 chooseLevelRank.SelectedIndex = 0;
                 UIEvents.MusicListApply.Invoke();
             };
-            UIEvents.MusicListApply += () => flusherMusicList.Enabled = true;
             #endregion
         }
 
@@ -144,12 +156,14 @@ namespace ChusanExplorer
             plr.InitAdvance();
             InitComponentData();
             UIEvents.PlayerCharaProfileChanged.Invoke();
+            UIEvents.RefreshResultPage.Invoke();
         }
 
         private void choosePack_SelectedIndexChanged(object sender, EventArgs e)
         {
             PackLoader.packMap.TryGetValue(choosePack.Text, out Pack pack);
             UIEvents.PackChoiceChanged.Invoke(pack);
+            UIEvents.RefreshResultPage.Invoke();
         }
 
         #region tab chara
@@ -247,6 +261,7 @@ namespace ChusanExplorer
         private void btnChooseChara_Click(object sender, EventArgs e)
         {
             PlayerCharaProfileLoader.SetPlayerChoice();
+            refreshResultPageImages();
         }
 
         private void buttonEditChara_Click(object sender, EventArgs e)
@@ -443,5 +458,24 @@ namespace ChusanExplorer
             chooseMusicGenre.SelectedItem = labelLevelInfoGenre.Text;
         }
         #endregion
+
+        void refreshResultPageImages()
+        {
+            imgResultPlayerIcon.Image = null;
+            if (Selected.player == null) return;
+            if (Storage.Characters.ContainsKey(Selected.player.chara))
+                imgResultPlayerIcon.Image = Storage.Characters[Selected.player.chara].images[0].dds[2].Image;
+        }
+
+        private void flushResultPage(object sender, EventArgs e)
+        {
+            refreshResultPageImages();
+            #region clear page
+            labelRatingSummary.Text = "寄";
+            #endregion
+            if (Selected.player == null) return;
+
+            flusherResultPage.Enabled = false;
+        }
     }
 }

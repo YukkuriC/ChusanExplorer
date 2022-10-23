@@ -11,6 +11,7 @@ namespace ChusanExplorer
         public int musicId, levelId;
         public int score, playCount, maxCombo;
         public bool FC, AJ;
+        public bool isRecentScore = false;
 
         public MusicLevel GetLevel()
         {
