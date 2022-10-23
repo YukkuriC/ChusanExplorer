@@ -77,6 +77,8 @@
     <Compile Include="Data\Character.cs" />
     <Compile Include="Data\ISortableInList.cs" />
     <Compile Include="Data\Music.cs" />
+    <Compile Include="SQL\PlayerCharaProfile.cs" />
+    <Compile Include="SQL\PlayerLevelResult.cs" />
     <Compile Include="UI\EditCharaForm.cs">
       <SubType>Form</SubType>
     </Compile>
