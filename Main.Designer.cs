@@ -69,7 +69,7 @@
             this.btnRollChara = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listCharacters = new System.Windows.Forms.ListBox();
-            this.labelCharaImgDescrip = new System.Windows.Forms.Label();
+            this.grpCharaImgDescrip = new System.Windows.Forms.GroupBox();
             this.imgCharaBig = new System.Windows.Forms.PictureBox();
             this.tabLevel = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -120,6 +120,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.grpCharaImgDescrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaBig)).BeginInit();
             this.tabLevel.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -136,7 +137,6 @@
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(70, 25);
@@ -153,7 +153,6 @@
             // 
             // toolStripTextBox2
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.ReadOnly = true;
             this.toolStripTextBox2.Size = new System.Drawing.Size(70, 25);
@@ -219,8 +218,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.labelCharaImgDescrip);
-            this.splitContainer1.Panel2.Controls.Add(this.imgCharaBig);
+            this.splitContainer1.Panel2.Controls.Add(this.grpCharaImgDescrip);
             this.splitContainer1.Size = new System.Drawing.Size(930, 540);
             this.splitContainer1.SplitterDistance = 413;
             this.splitContainer1.TabIndex = 2;
@@ -237,7 +235,7 @@
             this.groupBox3.Controls.Add(this.labelCharaInfoHeader);
             this.groupBox3.Location = new System.Drawing.Point(5, 324);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(406, 211);
+            this.groupBox3.Size = new System.Drawing.Size(406, 216);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "角色信息";
@@ -582,21 +580,21 @@
             this.listCharacters.TabIndex = 0;
             this.listCharacters.SelectedIndexChanged += new System.EventHandler(this.chooseCharacter);
             // 
-            // labelCharaImgDescrip
+            // grpCharaImgDescrip
             // 
-            this.labelCharaImgDescrip.AutoSize = true;
-            this.labelCharaImgDescrip.Location = new System.Drawing.Point(3, 3);
-            this.labelCharaImgDescrip.Name = "labelCharaImgDescrip";
-            this.labelCharaImgDescrip.Size = new System.Drawing.Size(53, 12);
-            this.labelCharaImgDescrip.TabIndex = 1;
-            this.labelCharaImgDescrip.Text = "角色立绘";
+            this.grpCharaImgDescrip.Controls.Add(this.imgCharaBig);
+            this.grpCharaImgDescrip.Location = new System.Drawing.Point(0, 3);
+            this.grpCharaImgDescrip.Name = "grpCharaImgDescrip";
+            this.grpCharaImgDescrip.Size = new System.Drawing.Size(513, 537);
+            this.grpCharaImgDescrip.TabIndex = 0;
+            this.grpCharaImgDescrip.TabStop = false;
+            this.grpCharaImgDescrip.Text = "角色立绘";
             // 
             // imgCharaBig
             // 
-            this.imgCharaBig.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.imgCharaBig.Location = new System.Drawing.Point(0, 28);
+            this.imgCharaBig.Location = new System.Drawing.Point(0, 25);
             this.imgCharaBig.Name = "imgCharaBig";
-            this.imgCharaBig.Size = new System.Drawing.Size(513, 512);
+            this.imgCharaBig.Size = new System.Drawing.Size(512, 512);
             this.imgCharaBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgCharaBig.TabIndex = 0;
             this.imgCharaBig.TabStop = false;
@@ -1072,7 +1070,6 @@
             this.tabChara.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -1086,6 +1083,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.grpCharaImgDescrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaBig)).EndInit();
             this.tabLevel.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -1146,7 +1144,6 @@
         private System.Windows.Forms.Button btnRollChara;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listCharacters;
-        private System.Windows.Forms.Label labelCharaImgDescrip;
         private System.Windows.Forms.PictureBox imgCharaBig;
         private System.Windows.Forms.TabPage tabLevel;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1184,6 +1181,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ListBox listLevels;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.GroupBox grpCharaImgDescrip;
     }
 }
 

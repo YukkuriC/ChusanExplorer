@@ -185,12 +185,12 @@ namespace ChusanExplorer
             {
                 imgCharaIcon.Image = null;
                 imgCharaBig.Image = null;
-                labelCharaImgDescrip.Text = "角色立绘: 寄";
+                grpCharaImgDescrip.Text = "角色立绘: 寄";
                 return;
             }
             imgCharaIcon.Image = grp.dds[2].Image;
             imgCharaBig.Image = grp.dds[0].Image;
-            labelCharaImgDescrip.Text = $"角色立绘: {grp.name}";
+            grpCharaImgDescrip.Text = $"角色立绘: {grp.name}";
         }
 
         private void chooseCharacter(object sender, EventArgs e)
