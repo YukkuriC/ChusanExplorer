@@ -61,7 +61,7 @@ namespace ChusanExplorer
                 if (levelId == 5) return 0;
                 var level = GetLevel();
                 if (level == null) return 0;
-                var deltaRating = CalcRatingExcess();
+                var deltaRating = (float)Math.Floor(CalcRatingExcess() * 100) * 0.01f;
                 return level.Rating + deltaRating;
             }
         }
