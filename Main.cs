@@ -68,10 +68,10 @@ namespace ChusanExplorer
             };
             DBLoader.Loaded += () =>
             {
-                chooseUser.Items.Clear();
-                chooseUser.Items.AddRange(DBLoader.users.ToArray());
-                chooseUser.SelectedIndex = 0;
-                chooseUser.Enabled = chooseUser.Items.Count > 0;
+                choosePlayer.Items.Clear();
+                choosePlayer.Items.AddRange(DBLoader.users.ToArray());
+                choosePlayer.SelectedIndex = 0;
+                choosePlayer.Enabled = choosePlayer.Items.Count > 0;
             };
 
             #region tab chara
@@ -137,10 +137,19 @@ namespace ChusanExplorer
         }
         #endregion
 
+        private void choosePlayer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var plr = (Player)choosePlayer.SelectedItem;
+            Selected.player = plr;
+            plr.InitAdvance();
+            InitComponentData();
+            UIEvents.PlayerCharaProfileChanged.Invoke();
+        }
+
         private void choosePack_SelectedIndexChanged(object sender, EventArgs e)
         {
             PackLoader.packMap.TryGetValue(choosePack.Text, out Pack pack);
-            UIEvents.PackChoiceChanged?.Invoke(pack);
+            UIEvents.PackChoiceChanged.Invoke(pack);
         }
 
         #region tab chara
@@ -235,15 +244,6 @@ namespace ChusanExplorer
             textCharaSearch.Text = labelCharaInfoName.Text;
         }
 
-        private void chooseUser_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var plr = (Player)chooseUser.SelectedItem;
-            Selected.player = plr;
-            plr.InitAdvance();
-            InitComponentData();
-            UIEvents.PlayerCharaProfileChanged.Invoke();
-        }
-
         private void btnChooseChara_Click(object sender, EventArgs e)
         {
             PlayerCharaProfileLoader.SetPlayerChoice();
@@ -281,6 +281,7 @@ namespace ChusanExplorer
 
         #endregion
 
+        #region tab music
         private void chooseMusicGenre_SelectedIndexChanged(object sender, EventArgs e)
         {
             MusicLevelLoader.genre = chooseMusicGenre.Text;
@@ -441,5 +442,6 @@ namespace ChusanExplorer
         {
             chooseMusicGenre.SelectedItem = labelLevelInfoGenre.Text;
         }
+        #endregion
     }
 }

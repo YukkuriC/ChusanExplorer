@@ -32,7 +32,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.choosePack = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.chooseUser = new System.Windows.Forms.ToolStripComboBox();
+            this.choosePlayer = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.flusherCharaList = new System.Windows.Forms.Timer(this.components);
             this.flusherMusicList = new System.Windows.Forms.Timer(this.components);
@@ -104,7 +104,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.chooseMusicSort = new System.Windows.Forms.ComboBox();
-            this.曲目列表 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listLevels = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
@@ -129,13 +129,14 @@
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.曲目列表.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(70, 25);
@@ -152,23 +153,24 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.ReadOnly = true;
             this.toolStripTextBox2.Size = new System.Drawing.Size(70, 25);
             this.toolStripTextBox2.Text = "用户档案：";
             // 
-            // chooseUser
+            // choosePlayer
             // 
-            this.chooseUser.Name = "chooseUser";
-            this.chooseUser.Size = new System.Drawing.Size(121, 25);
-            this.chooseUser.ToolTipText = "选择用户档案";
-            this.chooseUser.SelectedIndexChanged += new System.EventHandler(this.chooseUser_SelectedIndexChanged);
+            this.choosePlayer.Name = "choosePlayer";
+            this.choosePlayer.Size = new System.Drawing.Size(121, 25);
+            this.choosePlayer.ToolTipText = "选择用户档案";
+            this.choosePlayer.SelectedIndexChanged += new System.EventHandler(this.choosePlayer_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox2,
-            this.chooseUser,
+            this.choosePlayer,
             this.toolStripTextBox1,
             this.choosePack});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -603,7 +605,7 @@
             // 
             this.tabLevel.Controls.Add(this.groupBox5);
             this.tabLevel.Controls.Add(this.groupBox4);
-            this.tabLevel.Controls.Add(this.曲目列表);
+            this.tabLevel.Controls.Add(this.groupBox7);
             this.tabLevel.Location = new System.Drawing.Point(4, 22);
             this.tabLevel.Name = "tabLevel";
             this.tabLevel.Padding = new System.Windows.Forms.Padding(3);
@@ -1018,15 +1020,15 @@
             this.chooseMusicSort.TabIndex = 3;
             this.chooseMusicSort.SelectedIndexChanged += new System.EventHandler(this.chooseMusicSort_SelectedIndexChanged);
             // 
-            // 曲目列表
+            // groupBox7
             // 
-            this.曲目列表.Controls.Add(this.listLevels);
-            this.曲目列表.Location = new System.Drawing.Point(420, 6);
-            this.曲目列表.Name = "曲目列表";
-            this.曲目列表.Size = new System.Drawing.Size(513, 537);
-            this.曲目列表.TabIndex = 4;
-            this.曲目列表.TabStop = false;
-            this.曲目列表.Text = "谱面列表";
+            this.groupBox7.Controls.Add(this.listLevels);
+            this.groupBox7.Location = new System.Drawing.Point(420, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(513, 537);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "谱面列表";
             // 
             // listLevels
             // 
@@ -1096,7 +1098,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.曲目列表.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1107,7 +1109,7 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripComboBox choosePack;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
-        private System.Windows.Forms.ToolStripComboBox chooseUser;
+        private System.Windows.Forms.ToolStripComboBox choosePlayer;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Timer flusherCharaList;
         private System.Windows.Forms.Timer flusherMusicList;
@@ -1179,7 +1181,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox chooseMusicSort;
-        private System.Windows.Forms.GroupBox 曲目列表;
+        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ListBox listLevels;
         private System.Windows.Forms.TabControl tabControl1;
     }
