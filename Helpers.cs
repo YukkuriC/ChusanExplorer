@@ -26,5 +26,7 @@ namespace ChusanExplorer
             if (ka.GetType() == typeof(string)) return string.Compare(ka, kb);
             return ka > kb ? 1 : ka == kb ? 0 : -1;
         }
+
+        public static Comparison<PlayerLevelResult> levelRatingDec = (PlayerLevelResult a, PlayerLevelResult b) => b.Rating > a.Rating ? 1 : b.Rating == a.Rating ? 0 : -1;
     }
 }

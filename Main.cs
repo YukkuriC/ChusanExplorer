@@ -33,7 +33,6 @@ namespace ChusanExplorer
         #region loading flow
         void InitComponentDataStatic()
         {
-            chooseCharaSort.DataSource = CharaSortType.AllMethods;
         }
 
         void InitComponentData()
@@ -459,6 +458,7 @@ namespace ChusanExplorer
         }
         #endregion
 
+        #region tab result
         void refreshResultPageImages()
         {
             imgResultPlayerIcon.Image = null;
@@ -474,8 +474,11 @@ namespace ChusanExplorer
             labelRatingSummary.Text = "寄";
             #endregion
             if (Selected.player == null) return;
+            PlayerRatingCalculator.Calc();
+            labelRatingSummary.Text = PlayerRatingCalculator.GetRatingSummary();
 
             flusherResultPage.Enabled = false;
         }
+        #endregion
     }
 }
