@@ -57,7 +57,7 @@
   <ItemGroup>
     <Reference Include="Pfim, Version=0.11.1.0, Culture=neutral, PublicKeyToken=c0ebc20d008ae134, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Pfim.dll</HintPath>
+      <HintPath>packages\Pfim.0.11.1\lib\netstandard2.0\Pfim.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
