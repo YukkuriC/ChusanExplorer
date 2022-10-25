@@ -467,17 +467,85 @@ namespace ChusanExplorer
                 imgResultPlayerIcon.Image = Storage.Characters[Selected.player.chara].images[0].dds[2].Image;
         }
 
+        static readonly int[] recommandTableIndexes = new int[] { 0, 14, 29, 39 };
+        static readonly float[] recommandTableRatingDeltas = new float[] { 0, 0.6f, 1f, 1.5f, 2f, 2.15f };
+
+        LinkLabelLinkClickedEventHandler genRecommendCellCallback(float baseRating, float targetRating)
+        {
+            return (object txt, LinkLabelLinkClickedEventArgs args) =>
+            {
+                for (var delta = 0.1; delta <= 0.3; delta++)
+                {
+                    var filters = from lvl in MusicLevelLoader.levelAll
+                                  where Math.Abs(lvl.Rating - targetRating) < delta
+                                  select lvl;
+                    if (checkRecommandLvlNew.Checked) filters = filters.Where((lvl) => lvl.GetProfile() == null);
+                    if (checkRecommandLvlPlayed.Checked) filters = filters.Where((lvl) => lvl.GetProfile() != null);
+                    if (checkRecommandHighScore.Checked) filters = filters.Where((lvl) => (lvl.GetProfile()?.Rating ?? 0) < baseRating);
+                    var pool = filters.ToList();
+                    if (pool.Count > 0)
+                    {
+                        (tabLevel.Parent as TabControl).SelectedTab = tabLevel;
+                        listLevels.SelectedItem = pool[rand.Next(pool.Count)];
+                        return;
+                    }
+                }
+                MessageBox.Show("寄");
+            };
+        }
+
         private void flushResultPage(object sender, EventArgs e)
         {
             refreshResultPageImages();
             #region clear page
             labelRatingSummary.Text = "寄";
+            for (int c = 1; c < tableRecommand.ColumnCount; c++)
+            {
+                for (int r = 1; r < tableRecommand.RowCount; r++)
+                {
+                    var cell = tableRecommand.GetControlFromPosition(c, r);
+                    cell?.Dispose();
+                }
+            }
             #endregion
             if (Selected.player == null) return;
             PlayerRatingCalculator.Calc();
             labelRatingSummary.Text = PlayerRatingCalculator.GetRatingSummary();
+            // table
+            for (int r = 1; r < 5; r++)
+            {
+                var ratingBase = PlayerRatingCalculator.b40[recommandTableIndexes[r - 1]].Rating;
+                for (int c = 1; c < 8; c++)
+                {
+                    Label cellToAdd;
+                    if (c == 1) cellToAdd = new Label { Text = ratingBase.ToString(), };
+                    else
+                    {
+                        var ratingDelta = ratingBase - recommandTableRatingDeltas[c - 2];
+                        if (ratingDelta <= 16.4)
+                        {
+                            cellToAdd = new LinkLabel { Text = Math.Round(ratingDelta, 1).ToString(), };
+                            (cellToAdd as LinkLabel).LinkClicked += genRecommendCellCallback(ratingBase, ratingDelta);
+                        }
+                        else cellToAdd = new Label { Text = "-", };
+                    }
+                    cellToAdd.Dock = DockStyle.Fill;
+                    cellToAdd.TextAlign = ContentAlignment.MiddleCenter;
+                    tableRecommand.Controls.Add(cellToAdd);
+                    tableRecommand.SetCellPosition(cellToAdd, new TableLayoutPanelCellPosition(c, r));
+                }
+            }
 
             flusherResultPage.Enabled = false;
+        }
+
+        private void checkRecommandLvlFilters_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                if (sender == checkRecommandLvlNew) checkRecommandLvlPlayed.Checked = false;
+                else checkRecommandLvlNew.Checked = false;
+            }
         }
         #endregion
     }

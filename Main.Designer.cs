@@ -107,12 +107,32 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listLevels = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.tabResult = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.checkRecommandHighScore = new System.Windows.Forms.CheckBox();
+            this.checkRecommandLvlNew = new System.Windows.Forms.CheckBox();
+            this.checkRecommandLvlPlayed = new System.Windows.Forms.CheckBox();
+            this.tableRecommand = new System.Windows.Forms.TableLayoutPanel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.labelRatingSummary = new System.Windows.Forms.Label();
             this.imgResultPlayerIcon = new System.Windows.Forms.PictureBox();
+            this.labelRatingSummary = new System.Windows.Forms.Label();
+            this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -142,6 +162,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tableRecommand.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
             this.SuspendLayout();
@@ -149,6 +172,7 @@
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(70, 25);
@@ -165,6 +189,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.ReadOnly = true;
             this.toolStripTextBox2.Size = new System.Drawing.Size(70, 25);
@@ -219,6 +244,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -1065,11 +1091,6 @@
             this.tabControl1.Size = new System.Drawing.Size(944, 572);
             this.tabControl1.TabIndex = 5;
             // 
-            // flusherResultPage
-            // 
-            this.flusherResultPage.Interval = 20;
-            this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
-            // 
             // tabResult
             // 
             this.tabResult.Controls.Add(this.splitContainer2);
@@ -1084,26 +1105,291 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox9);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox8);
             this.splitContainer2.Size = new System.Drawing.Size(930, 540);
-            this.splitContainer2.SplitterDistance = 375;
+            this.splitContainer2.SplitterDistance = 413;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox9.Controls.Add(this.tableRecommand);
+            this.groupBox9.Location = new System.Drawing.Point(5, 112);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(406, 123);
+            this.groupBox9.TabIndex = 1;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "推荐定数表";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label32);
+            this.flowLayoutPanel1.Controls.Add(this.checkRecommandHighScore);
+            this.flowLayoutPanel1.Controls.Add(this.checkRecommandLvlNew);
+            this.flowLayoutPanel1.Controls.Add(this.checkRecommandLvlPlayed);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 95);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(399, 24);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 22);
+            this.label32.TabIndex = 5;
+            this.label32.Text = "筛选：";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkRecommandHighScore
+            // 
+            this.checkRecommandHighScore.AutoSize = true;
+            this.checkRecommandHighScore.Checked = true;
+            this.checkRecommandHighScore.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkRecommandHighScore.Location = new System.Drawing.Point(50, 3);
+            this.checkRecommandHighScore.Name = "checkRecommandHighScore";
+            this.checkRecommandHighScore.Size = new System.Drawing.Size(144, 16);
+            this.checkRecommandHighScore.TabIndex = 1;
+            this.checkRecommandHighScore.Text = "最高分低于目标rating";
+            this.checkRecommandHighScore.UseVisualStyleBackColor = true;
+            // 
+            // checkRecommandLvlNew
+            // 
+            this.checkRecommandLvlNew.AutoSize = true;
+            this.checkRecommandLvlNew.Location = new System.Drawing.Point(200, 3);
+            this.checkRecommandLvlNew.Name = "checkRecommandLvlNew";
+            this.checkRecommandLvlNew.Size = new System.Drawing.Size(48, 16);
+            this.checkRecommandLvlNew.TabIndex = 2;
+            this.checkRecommandLvlNew.Text = "新歌";
+            this.checkRecommandLvlNew.UseVisualStyleBackColor = true;
+            this.checkRecommandLvlNew.CheckedChanged += new System.EventHandler(this.checkRecommandLvlFilters_CheckedChanged);
+            // 
+            // checkRecommandLvlPlayed
+            // 
+            this.checkRecommandLvlPlayed.AutoSize = true;
+            this.checkRecommandLvlPlayed.Location = new System.Drawing.Point(254, 3);
+            this.checkRecommandLvlPlayed.Name = "checkRecommandLvlPlayed";
+            this.checkRecommandLvlPlayed.Size = new System.Drawing.Size(72, 16);
+            this.checkRecommandLvlPlayed.TabIndex = 4;
+            this.checkRecommandLvlPlayed.Text = "已有成绩";
+            this.checkRecommandLvlPlayed.UseVisualStyleBackColor = true;
+            this.checkRecommandLvlPlayed.CheckedChanged += new System.EventHandler(this.checkRecommandLvlFilters_CheckedChanged);
+            // 
+            // tableRecommand
+            // 
+            this.tableRecommand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableRecommand.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.tableRecommand.ColumnCount = 8;
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableRecommand.Controls.Add(this.label31, 1, 1);
+            this.tableRecommand.Controls.Add(this.label30, 7, 0);
+            this.tableRecommand.Controls.Add(this.label29, 0, 4);
+            this.tableRecommand.Controls.Add(this.label28, 0, 3);
+            this.tableRecommand.Controls.Add(this.label27, 0, 2);
+            this.tableRecommand.Controls.Add(this.label26, 0, 1);
+            this.tableRecommand.Controls.Add(this.label25, 6, 0);
+            this.tableRecommand.Controls.Add(this.label24, 5, 0);
+            this.tableRecommand.Controls.Add(this.label23, 4, 0);
+            this.tableRecommand.Controls.Add(this.label22, 3, 0);
+            this.tableRecommand.Controls.Add(this.label18, 2, 0);
+            this.tableRecommand.Controls.Add(this.label15, 1, 0);
+            this.tableRecommand.Controls.Add(this.label13, 0, 0);
+            this.tableRecommand.Location = new System.Drawing.Point(3, 17);
+            this.tableRecommand.Name = "tableRecommand";
+            this.tableRecommand.RowCount = 5;
+            this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableRecommand.Size = new System.Drawing.Size(399, 77);
+            this.tableRecommand.TabIndex = 0;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label31.Location = new System.Drawing.Point(31, 17);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(44, 13);
+            this.label31.TabIndex = 12;
+            this.label31.Text = "11.451";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label30.Location = new System.Drawing.Point(348, 2);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(46, 13);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "SSS+";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Location = new System.Drawing.Point(5, 62);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(18, 13);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "40";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label28.Location = new System.Drawing.Point(5, 47);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(18, 13);
+            this.label28.TabIndex = 9;
+            this.label28.Text = "30";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label27.Location = new System.Drawing.Point(5, 32);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(18, 13);
+            this.label27.TabIndex = 8;
+            this.label27.Text = "15";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Location = new System.Drawing.Point(5, 17);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(18, 13);
+            this.label26.TabIndex = 7;
+            this.label26.Text = " 1";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label25.Location = new System.Drawing.Point(295, 2);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(45, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "SSS";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Location = new System.Drawing.Point(242, 2);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "SS+";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Location = new System.Drawing.Point(189, 2);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "SS";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Location = new System.Drawing.Point(136, 2);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "S+";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label18.Location = new System.Drawing.Point(83, 2);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "S";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Location = new System.Drawing.Point(31, 2);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "rating";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Location = new System.Drawing.Point(5, 2);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "#";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.imgResultPlayerIcon);
             this.groupBox8.Controls.Add(this.labelRatingSummary);
             this.groupBox8.Location = new System.Drawing.Point(5, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(367, 103);
+            this.groupBox8.Size = new System.Drawing.Size(406, 103);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "总览";
+            // 
+            // imgResultPlayerIcon
+            // 
+            this.imgResultPlayerIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgResultPlayerIcon.Location = new System.Drawing.Point(320, 17);
+            this.imgResultPlayerIcon.Name = "imgResultPlayerIcon";
+            this.imgResultPlayerIcon.Size = new System.Drawing.Size(80, 80);
+            this.imgResultPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgResultPlayerIcon.TabIndex = 2;
+            this.imgResultPlayerIcon.TabStop = false;
             // 
             // labelRatingSummary
             // 
@@ -1116,15 +1402,10 @@
             this.labelRatingSummary.Text = "Rating: 1145.14 (历史最高: 1919.81)\r\nB30: 1919\r\nR10: 6666\r\nB31-40: 7777\r\n保底Rating: 88" +
     "88\r\n不推分最高Rating: 9999";
             // 
-            // imgResultPlayerIcon
+            // flusherResultPage
             // 
-            this.imgResultPlayerIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgResultPlayerIcon.Location = new System.Drawing.Point(281, 17);
-            this.imgResultPlayerIcon.Name = "imgResultPlayerIcon";
-            this.imgResultPlayerIcon.Size = new System.Drawing.Size(80, 80);
-            this.imgResultPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgResultPlayerIcon.TabIndex = 2;
-            this.imgResultPlayerIcon.TabStop = false;
+            this.flusherResultPage.Interval = 20;
+            this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
             // 
             // Main
             // 
@@ -1176,6 +1457,11 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tableRecommand.ResumeLayout(false);
+            this.tableRecommand.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
@@ -1269,6 +1555,26 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.PictureBox imgResultPlayerIcon;
         private System.Windows.Forms.Label labelRatingSummary;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TableLayoutPanel tableRecommand;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.CheckBox checkRecommandHighScore;
+        private System.Windows.Forms.CheckBox checkRecommandLvlNew;
+        private System.Windows.Forms.CheckBox checkRecommandLvlPlayed;
+        private System.Windows.Forms.Label label32;
     }
 }
 
