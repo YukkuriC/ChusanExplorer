@@ -226,10 +226,13 @@ namespace ChusanExplorer
             for (var i = 0; i < chara.images.Count; i++)
             {
                 var img = chara.images[i];
-                var link = new LinkLabel();
-                link.Text = $"[{i}] {img.name}";
-                link.Margin = new Padding(3);
-                link.AutoSize = true;
+                var link = new LinkLabel
+                {
+                    Text = $"[{i}] {img.name}",
+                    Margin = new Padding(3),
+                    AutoSize = true,
+                    LinkBehavior = LinkBehavior.HoverUnderline,
+                };
                 link.LinkClicked += (object _, LinkLabelLinkClickedEventArgs a) =>
                 {
                     showCharacterImage(img);
@@ -350,25 +353,8 @@ namespace ChusanExplorer
             e.DrawBackground();
             Brush myBrush = Brushes.Black;
             var item = (MusicLevel)listLevels.Items[e.Index];
-            switch (item.index)
-            {
-                case 0:
-                    myBrush = Brushes.DarkGreen;
-                    break;
-                case 1:
-                    myBrush = Brushes.DarkOrange;
-                    break;
-                case 2:
-                    myBrush = Brushes.DarkRed;
-                    break;
-                case 3:
-                    myBrush = Brushes.Purple;
-                    break;
-                case 5:
-                    myBrush = rainbowColors[(e.Index) % 7];
-                    break;
-            }
-            //e.DrawFocusRectangle();
+            if (item.index <= 3) myBrush = new SolidBrush(Config.levelColors[item.index]);
+            else if (item.index == 5) myBrush = rainbowColors[(e.Index) % 7];
             if (item.index >= 4)
             {
                 var rectOrig = e.Bounds;
@@ -424,8 +410,11 @@ namespace ChusanExplorer
                 }
                 else
                 {
-                    var lvlSwitch = new LinkLabel();
-                    lvlSwitch.Text = txt;
+                    var lvlSwitch = new LinkLabel
+                    {
+                        Text = txt,
+                        LinkBehavior = LinkBehavior.HoverUnderline,
+                    };
                     lvlSwitch.LinkClicked += (object ss, LinkLabelLinkClickedEventArgs ee) =>
                     {
                         listLevels.SelectedItem = l;
@@ -470,6 +459,12 @@ namespace ChusanExplorer
         static readonly int[] recommandTableIndexes = new int[] { 0, 14, 29, 39 };
         static readonly float[] recommandTableRatingDeltas = new float[] { 0, 0.6f, 1f, 1.5f, 2f, 2.15f };
 
+        void switchToLevel(MusicLevel target)
+        {
+            (tabLevel.Parent as TabControl).SelectedTab = tabLevel;
+            listLevels.SelectedItem = target;
+        }
+
         LinkLabelLinkClickedEventHandler genRecommendCellCallback(float baseRating, float targetRating)
         {
             return (object txt, LinkLabelLinkClickedEventArgs args) =>
@@ -485,13 +480,27 @@ namespace ChusanExplorer
                     var pool = filters.ToList();
                     if (pool.Count > 0)
                     {
-                        (tabLevel.Parent as TabControl).SelectedTab = tabLevel;
-                        listLevels.SelectedItem = pool[rand.Next(pool.Count)];
+                        switchToLevel(pool[rand.Next(pool.Count)]);
                         return;
                     }
                 }
                 MessageBox.Show("寄");
             };
+        }
+
+        LinkLabel genResultLink(string prefix, PlayerLevelResult data)
+        {
+            var level = data.GetLevel();
+            var txt = new LinkLabel
+            {
+                Text = $"{prefix}[{data.Rating.ToString("0.00")}|{level.GetDisplayTag(MusicSortType.Result)}]{level.GetGeneralDisplay()}",
+                AutoSize = true,
+                Margin = new Padding(0),
+                LinkBehavior = LinkBehavior.HoverUnderline,
+            };
+            if (level.index <= 3) txt.LinkColor = Config.levelColors[level.index];
+            txt.LinkClicked += (o, e) => switchToLevel(level);
+            return txt;
         }
 
         private void flushResultPage(object sender, EventArgs e)
@@ -507,10 +516,13 @@ namespace ChusanExplorer
                     cell?.Dispose();
                 }
             }
+            lstB30.Controls.Clear();
+            lstR10.Controls.Clear();
             #endregion
             if (Selected.player == null) return;
             PlayerRatingCalculator.Calc();
             labelRatingSummary.Text = PlayerRatingCalculator.GetRatingSummary();
+
             // table
             for (int r = 1; r < 5; r++)
             {
@@ -522,9 +534,13 @@ namespace ChusanExplorer
                     else
                     {
                         var ratingDelta = ratingBase - recommandTableRatingDeltas[c - 2];
-                        if (ratingDelta <= 16.4)
+                        if (ratingDelta <= 15.4)
                         {
-                            cellToAdd = new LinkLabel { Text = Math.Round(ratingDelta, 1).ToString(), };
+                            cellToAdd = new LinkLabel
+                            {
+                                Text = Math.Round(ratingDelta, 1).ToString(),
+                                LinkBehavior = LinkBehavior.HoverUnderline,
+                            };
                             (cellToAdd as LinkLabel).LinkClicked += genRecommendCellCallback(ratingBase, ratingDelta);
                         }
                         else cellToAdd = new Label { Text = "-", };
@@ -534,6 +550,23 @@ namespace ChusanExplorer
                     tableRecommand.Controls.Add(cellToAdd);
                     tableRecommand.SetCellPosition(cellToAdd, new TableLayoutPanelCellPosition(c, r));
                 }
+            }
+
+            // level lists
+            for (var i = 0; i < PlayerRatingCalculator.b30.Count; i++)
+            {
+                lstB30.Controls.Add(genResultLink(
+                    $"{i + 1:00}.",
+                    PlayerRatingCalculator.b30[i]
+                ));
+            }
+            for (var i = 0; i < PlayerRatingCalculator.r10Chosen.Count; i++)
+            {
+                var res = PlayerRatingCalculator.r10Chosen[i];
+                lstR10.Controls.Add(genResultLink(
+                    res.isRecentScore ? "[R10]" : "[B40]",
+                    res
+                ));
             }
 
             flusherResultPage.Enabled = false;

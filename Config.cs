@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -10,6 +11,14 @@ namespace ChusanExplorer
 {
     public static class Config
     {
+        public static readonly Color[] levelColors = new Color[]
+        {
+            Color.Green,
+            Color.Orange,
+            Color.IndianRed,
+            Color.Purple,
+        };
+
         public const string ALL = "(All)";
 
         public static string DirA000 = "C:/Chunithm New Plus/app/data/A000";

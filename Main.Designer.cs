@@ -135,6 +135,10 @@
             this.labelRatingSummary = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.lstR10 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -174,6 +178,9 @@
             this.tableRecommand.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -341,6 +348,7 @@
             // 
             this.labelCharaInfoName.AutoEllipsis = true;
             this.labelCharaInfoName.AutoSize = true;
+            this.labelCharaInfoName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.labelCharaInfoName.Location = new System.Drawing.Point(77, 17);
             this.labelCharaInfoName.Name = "labelCharaInfoName";
             this.labelCharaInfoName.Size = new System.Drawing.Size(59, 12);
@@ -462,6 +470,7 @@
             this.labelCharaInfoType.AutoEllipsis = true;
             this.labelCharaInfoType.AutoSize = true;
             this.labelCharaInfoType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCharaInfoType.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.labelCharaInfoType.Location = new System.Drawing.Point(74, 0);
             this.labelCharaInfoType.Name = "labelCharaInfoType";
             this.labelCharaInfoType.Size = new System.Drawing.Size(320, 19);
@@ -952,6 +961,7 @@
             this.labelLevelInfoGenre.AutoEllipsis = true;
             this.labelLevelInfoGenre.AutoSize = true;
             this.labelLevelInfoGenre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoGenre.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.labelLevelInfoGenre.Location = new System.Drawing.Point(74, 34);
             this.labelLevelInfoGenre.Name = "labelLevelInfoGenre";
             this.labelLevelInfoGenre.Size = new System.Drawing.Size(330, 17);
@@ -988,6 +998,7 @@
             this.labelLevelInfoAuthor.AutoEllipsis = true;
             this.labelLevelInfoAuthor.AutoSize = true;
             this.labelLevelInfoAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoAuthor.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.labelLevelInfoAuthor.Location = new System.Drawing.Point(74, 17);
             this.labelLevelInfoAuthor.Name = "labelLevelInfoAuthor";
             this.labelLevelInfoAuthor.Size = new System.Drawing.Size(330, 17);
@@ -1068,6 +1079,7 @@
             this.labelLevelInfoName.AutoEllipsis = true;
             this.labelLevelInfoName.AutoSize = true;
             this.labelLevelInfoName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.labelLevelInfoName.Location = new System.Drawing.Point(74, 0);
             this.labelLevelInfoName.Name = "labelLevelInfoName";
             this.labelLevelInfoName.Size = new System.Drawing.Size(330, 17);
@@ -1439,6 +1451,8 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.groupBox12);
+            this.groupBox10.Controls.Add(this.groupBox11);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(0, 0);
             this.groupBox10.Name = "groupBox10";
@@ -1451,6 +1465,46 @@
             // 
             this.flusherResultPage.Interval = 20;
             this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.lstB30);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox11.Location = new System.Drawing.Point(3, 17);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(507, 382);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "B30";
+            // 
+            // lstB30
+            // 
+            this.lstB30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstB30.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.lstB30.Location = new System.Drawing.Point(3, 17);
+            this.lstB30.Name = "lstB30";
+            this.lstB30.Size = new System.Drawing.Size(501, 362);
+            this.lstB30.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.lstR10);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox12.Location = new System.Drawing.Point(3, 399);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(507, 382);
+            this.groupBox12.TabIndex = 1;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "B30";
+            // 
+            // lstR10
+            // 
+            this.lstR10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.lstR10.Location = new System.Drawing.Point(3, 17);
+            this.lstR10.Name = "lstR10";
+            this.lstR10.Size = new System.Drawing.Size(501, 362);
+            this.lstR10.TabIndex = 0;
             // 
             // Main
             // 
@@ -1515,6 +1569,9 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1627,6 +1684,10 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.FlowLayoutPanel lstR10;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.FlowLayoutPanel lstB30;
     }
 }
 
