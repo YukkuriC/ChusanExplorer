@@ -71,10 +71,54 @@ namespace ChusanExplorer
             levelSub = Convert.ToInt32(data.SelectSingleNode("levelDecimal").InnerText);
         }
 
+        public string GetDisplayTag(string type)
+        {
+            if (Selected.player != null)
+            {
+                var p = GetProfile();
+                if (p == null)
+                    switch (type)
+                    {
+                        case MusicSortType.Result:
+                        case MusicSortType.Rating:
+                        case MusicSortType.PlayCount:
+                            return "未游玩";
+                    }
+                switch (type)
+                {
+                    case MusicSortType.Result:
+                        return p.ToString();
+                    case MusicSortType.Rating:
+                        return Math.Round(p.Rating, 3).ToString();
+                    //return p.Rating.ToString("0.000");
+                    case MusicSortType.PlayCount:
+                        return $"{p.playCount}PC";
+                }
+            }
+
+            switch (type)
+            {
+                default:
+                    return music.id.PadID(4);
+                case MusicSortType.Level:
+                    if (index == 5) return music.WEType;
+                    return Rating.ToString("0.0");
+                case MusicSortType.Name:
+                    return music.name;
+                case MusicSortType.Author:
+                    return music.author;
+                case MusicSortType.Version:
+                    return music.version;
+            }
+        }
+
+        public string GetGeneralDisplay() => $"{music.name} ({IndexNames[index]} {RankDisplay})";
+
         public override string ToString()
         {
-            var res = $"{music.name} ({IndexNames[index]} {RankDisplay})";
-            if (SortKey != music.name) res = $"[{SortKey}] {res}";
+            var res = GetGeneralDisplay();
+            var tag = GetDisplayTag(MusicLevelLoader.sort);
+            if (tag != music.name) res = $"[{tag}] {res}";
             return res;
         }
 
@@ -86,49 +130,7 @@ namespace ChusanExplorer
             return res;
         }
 
-        public string SortKey
-        {
-            get
-            {
-                if (Selected.player != null)
-                {
-                    var p = GetProfile();
-                    if (p == null)
-                        switch (MusicLevelLoader.sort)
-                        {
-                            case MusicSortType.Result:
-                            case MusicSortType.Rating:
-                            case MusicSortType.PlayCount:
-                                return "未游玩";
-                        }
-                    switch (MusicLevelLoader.sort)
-                    {
-                        case MusicSortType.Result:
-                            return p.ToString();
-                        case MusicSortType.Rating:
-                            return Math.Round(p.Rating, 3).ToString();
-                        //return p.Rating.ToString("0.000");
-                        case MusicSortType.PlayCount:
-                            return $"{p.playCount}PC";
-                    }
-                }
-
-                switch (MusicLevelLoader.sort)
-                {
-                    default:
-                        return music.id.PadID(4);
-                    case MusicSortType.Level:
-                        if (index == 5) return music.WEType;
-                        return Rating.ToString("0.0");
-                    case MusicSortType.Name:
-                        return music.name;
-                    case MusicSortType.Author:
-                        return music.author;
-                    case MusicSortType.Version:
-                        return music.version;
-                }
-            }
-        }
+        public string SortKey { get => GetDisplayTag(MusicLevelLoader.sort); }
 
         public dynamic SortKeyInner
         {

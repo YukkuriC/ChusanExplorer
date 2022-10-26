@@ -39,6 +39,8 @@
             this.flusherCharaProfile = new System.Windows.Forms.Timer(this.components);
             this.tabChara = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listCharacters = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonEditChara = new System.Windows.Forms.Button();
             this.btnChooseChara = new System.Windows.Forms.Button();
@@ -67,11 +69,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkCharaOwned = new System.Windows.Forms.CheckBox();
             this.btnRollChara = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listCharacters = new System.Windows.Forms.ListBox();
             this.grpCharaImgDescrip = new System.Windows.Forms.GroupBox();
             this.imgCharaBig = new System.Windows.Forms.PictureBox();
             this.tabLevel = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.textMusicSearch = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.chooseLevelRank = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkLevelPlayed = new System.Windows.Forms.CheckBox();
+            this.btnRollLevel = new System.Windows.Forms.Button();
+            this.chooseLevelType = new System.Windows.Forms.ComboBox();
+            this.chooseMusicGenre = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.chooseMusicSort = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.levelSwitchContainer = new System.Windows.Forms.FlowLayoutPanel();
@@ -89,21 +105,6 @@
             this.labelLevelInfoRank = new System.Windows.Forms.Label();
             this.labelLevelInfoName = new System.Windows.Forms.LinkLabel();
             this.label19 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.textMusicSearch = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.chooseLevelRank = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.checkLevelPlayed = new System.Windows.Forms.CheckBox();
-            this.btnRollLevel = new System.Windows.Forms.Button();
-            this.chooseLevelType = new System.Windows.Forms.ComboBox();
-            this.chooseMusicGenre = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.chooseMusicSort = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listLevels = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -132,6 +133,7 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.imgResultPlayerIcon = new System.Windows.Forms.PictureBox();
             this.labelRatingSummary = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
@@ -139,28 +141,33 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaIcon)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.grpCharaImgDescrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaBig)).BeginInit();
             this.tabLevel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgMusicCover)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -250,9 +257,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
             // 
@@ -260,6 +267,29 @@
             this.splitContainer1.Size = new System.Drawing.Size(930, 540);
             this.splitContainer1.SplitterDistance = 413;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.listCharacters);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 73);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(413, 251);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "角色列表";
+            // 
+            // listCharacters
+            // 
+            this.listCharacters.DisplayMember = "DisplayText";
+            this.listCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listCharacters.FormattingEnabled = true;
+            this.listCharacters.ItemHeight = 12;
+            this.listCharacters.Location = new System.Drawing.Point(3, 17);
+            this.listCharacters.Name = "listCharacters";
+            this.listCharacters.Size = new System.Drawing.Size(407, 231);
+            this.listCharacters.TabIndex = 0;
+            this.listCharacters.SelectedIndexChanged += new System.EventHandler(this.chooseCharacter);
             // 
             // groupBox3
             // 
@@ -271,9 +301,10 @@
             this.groupBox3.Controls.Add(this.charaAltImageContainer);
             this.groupBox3.Controls.Add(this.tableLayoutPanel2);
             this.groupBox3.Controls.Add(this.labelCharaInfoHeader);
-            this.groupBox3.Location = new System.Drawing.Point(5, 324);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(0, 324);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(406, 216);
+            this.groupBox3.Size = new System.Drawing.Size(413, 216);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "角色信息";
@@ -464,10 +495,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox2.Location = new System.Drawing.Point(5, 3);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(406, 69);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.Size = new System.Drawing.Size(413, 73);
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "角色筛选";
             // 
@@ -493,16 +525,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(407, 53);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 24);
+            this.label3.Location = new System.Drawing.Point(3, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 25);
+            this.label3.Size = new System.Drawing.Size(54, 27);
             this.label3.TabIndex = 4;
             this.label3.Text = "搜索名称";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -511,9 +543,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(203, 0);
+            this.label2.Location = new System.Drawing.Point(206, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 24);
+            this.label2.Size = new System.Drawing.Size(54, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "排序方式";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,7 +556,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 24);
+            this.label1.Size = new System.Drawing.Size(54, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "筛选分类";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -537,7 +569,7 @@
             this.chooseCharaType.FormattingEnabled = true;
             this.chooseCharaType.Location = new System.Drawing.Point(63, 3);
             this.chooseCharaType.Name = "chooseCharaType";
-            this.chooseCharaType.Size = new System.Drawing.Size(134, 20);
+            this.chooseCharaType.Size = new System.Drawing.Size(137, 20);
             this.chooseCharaType.TabIndex = 1;
             this.chooseCharaType.SelectedIndexChanged += new System.EventHandler(this.charaTypeChanged);
             // 
@@ -546,18 +578,18 @@
             this.chooseCharaSort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chooseCharaSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chooseCharaSort.FormattingEnabled = true;
-            this.chooseCharaSort.Location = new System.Drawing.Point(263, 3);
+            this.chooseCharaSort.Location = new System.Drawing.Point(266, 3);
             this.chooseCharaSort.Name = "chooseCharaSort";
-            this.chooseCharaSort.Size = new System.Drawing.Size(134, 20);
+            this.chooseCharaSort.Size = new System.Drawing.Size(138, 20);
             this.chooseCharaSort.TabIndex = 3;
             this.chooseCharaSort.SelectedIndexChanged += new System.EventHandler(this.charaSortChanged);
             // 
             // textCharaSearch
             // 
             this.textCharaSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textCharaSearch.Location = new System.Drawing.Point(63, 27);
+            this.textCharaSearch.Location = new System.Drawing.Point(63, 29);
             this.textCharaSearch.Name = "textCharaSearch";
-            this.textCharaSearch.Size = new System.Drawing.Size(134, 21);
+            this.textCharaSearch.Size = new System.Drawing.Size(137, 21);
             this.textCharaSearch.TabIndex = 5;
             this.textCharaSearch.TextChanged += new System.EventHandler(this.charaFilterTextChanged);
             // 
@@ -567,9 +599,9 @@
             this.panel1.Controls.Add(this.checkCharaOwned);
             this.panel1.Controls.Add(this.btnRollChara);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(203, 27);
+            this.panel1.Location = new System.Drawing.Point(206, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 19);
+            this.panel1.Size = new System.Drawing.Size(198, 21);
             this.panel1.TabIndex = 6;
             // 
             // checkCharaOwned
@@ -579,7 +611,7 @@
             this.checkCharaOwned.Location = new System.Drawing.Point(82, 0);
             this.checkCharaOwned.Name = "checkCharaOwned";
             this.checkCharaOwned.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.checkCharaOwned.Size = new System.Drawing.Size(113, 19);
+            this.checkCharaOwned.Size = new System.Drawing.Size(113, 21);
             this.checkCharaOwned.TabIndex = 7;
             this.checkCharaOwned.Text = "仅显示已有角色";
             this.checkCharaOwned.UseVisualStyleBackColor = true;
@@ -590,40 +622,19 @@
             this.btnRollChara.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnRollChara.Location = new System.Drawing.Point(0, 0);
             this.btnRollChara.Name = "btnRollChara";
-            this.btnRollChara.Size = new System.Drawing.Size(82, 19);
+            this.btnRollChara.Size = new System.Drawing.Size(82, 21);
             this.btnRollChara.TabIndex = 6;
             this.btnRollChara.Text = "抓壮丁";
             this.btnRollChara.UseVisualStyleBackColor = true;
             this.btnRollChara.Click += new System.EventHandler(this.rollCharacter);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.listCharacters);
-            this.groupBox1.Location = new System.Drawing.Point(5, 75);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 243);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "角色列表";
-            // 
-            // listCharacters
-            // 
-            this.listCharacters.DisplayMember = "DisplayText";
-            this.listCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listCharacters.FormattingEnabled = true;
-            this.listCharacters.ItemHeight = 12;
-            this.listCharacters.Location = new System.Drawing.Point(3, 17);
-            this.listCharacters.Name = "listCharacters";
-            this.listCharacters.Size = new System.Drawing.Size(400, 223);
-            this.listCharacters.TabIndex = 0;
-            this.listCharacters.SelectedIndexChanged += new System.EventHandler(this.chooseCharacter);
-            // 
             // grpCharaImgDescrip
             // 
             this.grpCharaImgDescrip.Controls.Add(this.imgCharaBig);
-            this.grpCharaImgDescrip.Location = new System.Drawing.Point(0, 3);
+            this.grpCharaImgDescrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpCharaImgDescrip.Location = new System.Drawing.Point(0, 0);
             this.grpCharaImgDescrip.Name = "grpCharaImgDescrip";
-            this.grpCharaImgDescrip.Size = new System.Drawing.Size(513, 537);
+            this.grpCharaImgDescrip.Size = new System.Drawing.Size(513, 540);
             this.grpCharaImgDescrip.TabIndex = 0;
             this.grpCharaImgDescrip.TabStop = false;
             this.grpCharaImgDescrip.Text = "角色立绘";
@@ -639,9 +650,7 @@
             // 
             // tabLevel
             // 
-            this.tabLevel.Controls.Add(this.groupBox5);
-            this.tabLevel.Controls.Add(this.groupBox4);
-            this.tabLevel.Controls.Add(this.groupBox7);
+            this.tabLevel.Controls.Add(this.splitContainer3);
             this.tabLevel.Location = new System.Drawing.Point(4, 22);
             this.tabLevel.Name = "tabLevel";
             this.tabLevel.Padding = new System.Windows.Forms.Padding(3);
@@ -650,222 +659,32 @@
             this.tabLevel.Text = "曲库";
             this.tabLevel.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // splitContainer3
             // 
-            this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Controls.Add(this.imgMusicCover);
-            this.groupBox5.Controls.Add(this.tableLayoutPanel4);
-            this.groupBox5.Location = new System.Drawing.Point(8, 108);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(406, 435);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "乐曲信息";
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.IsSplitterFixed = true;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
             // 
-            // groupBox6
+            // splitContainer3.Panel1
             // 
-            this.groupBox6.Controls.Add(this.levelSwitchContainer);
-            this.groupBox6.Location = new System.Drawing.Point(309, 125);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(97, 303);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "难度选择";
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox4);
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox5);
             // 
-            // levelSwitchContainer
+            // splitContainer3.Panel2
             // 
-            this.levelSwitchContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.levelSwitchContainer.Location = new System.Drawing.Point(3, 17);
-            this.levelSwitchContainer.Name = "levelSwitchContainer";
-            this.levelSwitchContainer.Size = new System.Drawing.Size(91, 283);
-            this.levelSwitchContainer.TabIndex = 0;
-            // 
-            // imgMusicCover
-            // 
-            this.imgMusicCover.Location = new System.Drawing.Point(3, 125);
-            this.imgMusicCover.Name = "imgMusicCover";
-            this.imgMusicCover.Size = new System.Drawing.Size(300, 300);
-            this.imgMusicCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgMusicCover.TabIndex = 5;
-            this.imgMusicCover.TabStop = false;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoGenre, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoResult, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label21, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoAuthor, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.label14, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoVersion, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label17, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoRank, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoName, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label19, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 20);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 7;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(400, 114);
-            this.tableLayoutPanel4.TabIndex = 6;
-            // 
-            // labelLevelInfoGenre
-            // 
-            this.labelLevelInfoGenre.AutoEllipsis = true;
-            this.labelLevelInfoGenre.AutoSize = true;
-            this.labelLevelInfoGenre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoGenre.Location = new System.Drawing.Point(74, 34);
-            this.labelLevelInfoGenre.Name = "labelLevelInfoGenre";
-            this.labelLevelInfoGenre.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoGenre.TabIndex = 13;
-            this.labelLevelInfoGenre.TabStop = true;
-            this.labelLevelInfoGenre.Text = "INM";
-            this.labelLevelInfoGenre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLevelInfoGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelLevelInfoGenre_LinkClicked);
-            // 
-            // labelLevelInfoResult
-            // 
-            this.labelLevelInfoResult.AutoSize = true;
-            this.labelLevelInfoResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoResult.Location = new System.Drawing.Point(74, 85);
-            this.labelLevelInfoResult.Name = "labelLevelInfoResult";
-            this.labelLevelInfoResult.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoResult.TabIndex = 12;
-            this.labelLevelInfoResult.Text = "未游玩";
-            this.labelLevelInfoResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Location = new System.Drawing.Point(3, 85);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(65, 17);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "成绩：";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelLevelInfoAuthor
-            // 
-            this.labelLevelInfoAuthor.AutoEllipsis = true;
-            this.labelLevelInfoAuthor.AutoSize = true;
-            this.labelLevelInfoAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoAuthor.Location = new System.Drawing.Point(74, 17);
-            this.labelLevelInfoAuthor.Name = "labelLevelInfoAuthor";
-            this.labelLevelInfoAuthor.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoAuthor.TabIndex = 10;
-            this.labelLevelInfoAuthor.TabStop = true;
-            this.labelLevelInfoAuthor.Text = "田所 浩二";
-            this.labelLevelInfoAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLevelInfoAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fillLevelSearchText);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(3, 68);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(65, 17);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "难度：";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(3, 51);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 17);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "加入版本：";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelLevelInfoVersion
-            // 
-            this.labelLevelInfoVersion.AutoSize = true;
-            this.labelLevelInfoVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoVersion.Location = new System.Drawing.Point(74, 51);
-            this.labelLevelInfoVersion.Name = "labelLevelInfoVersion";
-            this.labelLevelInfoVersion.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoVersion.TabIndex = 6;
-            this.labelLevelInfoVersion.Text = "v1 11.45.14";
-            this.labelLevelInfoVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Location = new System.Drawing.Point(3, 34);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 17);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "分类：";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(3, 17);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 17);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "作者：";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelLevelInfoRank
-            // 
-            this.labelLevelInfoRank.AutoSize = true;
-            this.labelLevelInfoRank.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoRank.Location = new System.Drawing.Point(74, 68);
-            this.labelLevelInfoRank.Name = "labelLevelInfoRank";
-            this.labelLevelInfoRank.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoRank.TabIndex = 3;
-            this.labelLevelInfoRank.Text = "MASTER 19 (8.10)";
-            this.labelLevelInfoRank.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelLevelInfoName
-            // 
-            this.labelLevelInfoName.AutoEllipsis = true;
-            this.labelLevelInfoName.AutoSize = true;
-            this.labelLevelInfoName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLevelInfoName.Location = new System.Drawing.Point(74, 0);
-            this.labelLevelInfoName.Name = "labelLevelInfoName";
-            this.labelLevelInfoName.Size = new System.Drawing.Size(323, 17);
-            this.labelLevelInfoName.TabIndex = 2;
-            this.labelLevelInfoName.TabStop = true;
-            this.labelLevelInfoName.Text = "三哼经";
-            this.labelLevelInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLevelInfoName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fillLevelSearchText);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 17);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "曲名：";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.splitContainer3.Panel2.Controls.Add(this.groupBox7);
+            this.splitContainer3.Size = new System.Drawing.Size(930, 540);
+            this.splitContainer3.SplitterDistance = 413;
+            this.splitContainer3.TabIndex = 7;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox4.Location = new System.Drawing.Point(8, 6);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(406, 96);
+            this.groupBox4.Size = new System.Drawing.Size(413, 99);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "谱面筛选";
@@ -895,15 +714,15 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(400, 76);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(407, 79);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // textMusicSearch
             // 
             this.textMusicSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textMusicSearch.Location = new System.Drawing.Point(63, 53);
+            this.textMusicSearch.Location = new System.Drawing.Point(63, 55);
             this.textMusicSearch.Name = "textMusicSearch";
-            this.textMusicSearch.Size = new System.Drawing.Size(134, 21);
+            this.textMusicSearch.Size = new System.Drawing.Size(137, 21);
             this.textMusicSearch.TabIndex = 12;
             this.textMusicSearch.TextChanged += new System.EventHandler(this.textMusicSearch_TextChanged);
             // 
@@ -911,9 +730,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(3, 50);
+            this.label12.Location = new System.Drawing.Point(3, 52);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 26);
+            this.label12.Size = new System.Drawing.Size(54, 27);
             this.label12.TabIndex = 11;
             this.label12.Text = "搜索名称";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -931,9 +750,9 @@
             "MASTER",
             "ULTIMA",
             "WORLD\'S END"});
-            this.chooseLevelRank.Location = new System.Drawing.Point(263, 28);
+            this.chooseLevelRank.Location = new System.Drawing.Point(266, 29);
             this.chooseLevelRank.Name = "chooseLevelRank";
-            this.chooseLevelRank.Size = new System.Drawing.Size(134, 20);
+            this.chooseLevelRank.Size = new System.Drawing.Size(138, 20);
             this.chooseLevelRank.TabIndex = 10;
             this.chooseLevelRank.SelectedIndexChanged += new System.EventHandler(this.chooseLevelRank_SelectedIndexChanged);
             // 
@@ -941,9 +760,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(203, 25);
+            this.label11.Location = new System.Drawing.Point(206, 26);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 25);
+            this.label11.Size = new System.Drawing.Size(54, 26);
             this.label11.TabIndex = 9;
             this.label11.Text = "筛选等级";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -953,7 +772,7 @@
             this.tableLayoutPanel3.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.checkLevelPlayed);
             this.panel2.Controls.Add(this.btnRollLevel);
-            this.panel2.Location = new System.Drawing.Point(203, 53);
+            this.panel2.Location = new System.Drawing.Point(206, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(194, 20);
             this.panel2.TabIndex = 9;
@@ -995,9 +814,9 @@
             "MASTER",
             "ULTIMA",
             "WORLD\'S END"});
-            this.chooseLevelType.Location = new System.Drawing.Point(63, 28);
+            this.chooseLevelType.Location = new System.Drawing.Point(63, 29);
             this.chooseLevelType.Name = "chooseLevelType";
-            this.chooseLevelType.Size = new System.Drawing.Size(134, 20);
+            this.chooseLevelType.Size = new System.Drawing.Size(137, 20);
             this.chooseLevelType.TabIndex = 8;
             this.chooseLevelType.SelectedIndexChanged += new System.EventHandler(this.chooseLevelType_SelectedIndexChanged);
             // 
@@ -1008,7 +827,7 @@
             this.chooseMusicGenre.FormattingEnabled = true;
             this.chooseMusicGenre.Location = new System.Drawing.Point(63, 3);
             this.chooseMusicGenre.Name = "chooseMusicGenre";
-            this.chooseMusicGenre.Size = new System.Drawing.Size(134, 20);
+            this.chooseMusicGenre.Size = new System.Drawing.Size(137, 20);
             this.chooseMusicGenre.TabIndex = 7;
             this.chooseMusicGenre.SelectedIndexChanged += new System.EventHandler(this.chooseMusicGenre_SelectedIndexChanged);
             // 
@@ -1016,9 +835,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(3, 25);
+            this.label8.Location = new System.Drawing.Point(3, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 25);
+            this.label8.Size = new System.Drawing.Size(54, 26);
             this.label8.TabIndex = 4;
             this.label8.Text = "筛选难度";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1027,9 +846,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(203, 0);
+            this.label9.Location = new System.Drawing.Point(206, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 25);
+            this.label9.Size = new System.Drawing.Size(54, 26);
             this.label9.TabIndex = 2;
             this.label9.Text = "排序方式";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1040,7 +859,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 25);
+            this.label10.Size = new System.Drawing.Size(54, 26);
             this.label10.TabIndex = 0;
             this.label10.Text = "筛选分类";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1050,18 +869,232 @@
             this.chooseMusicSort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chooseMusicSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chooseMusicSort.FormattingEnabled = true;
-            this.chooseMusicSort.Location = new System.Drawing.Point(263, 3);
+            this.chooseMusicSort.Location = new System.Drawing.Point(266, 3);
             this.chooseMusicSort.Name = "chooseMusicSort";
-            this.chooseMusicSort.Size = new System.Drawing.Size(134, 20);
+            this.chooseMusicSort.Size = new System.Drawing.Size(138, 20);
             this.chooseMusicSort.TabIndex = 3;
             this.chooseMusicSort.SelectedIndexChanged += new System.EventHandler(this.chooseMusicSort_SelectedIndexChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.imgMusicCover);
+            this.groupBox5.Controls.Add(this.tableLayoutPanel4);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox5.Location = new System.Drawing.Point(0, 105);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(413, 435);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "乐曲信息";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.levelSwitchContainer);
+            this.groupBox6.Location = new System.Drawing.Point(309, 122);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(97, 306);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "难度选择";
+            // 
+            // levelSwitchContainer
+            // 
+            this.levelSwitchContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.levelSwitchContainer.Location = new System.Drawing.Point(3, 17);
+            this.levelSwitchContainer.Name = "levelSwitchContainer";
+            this.levelSwitchContainer.Size = new System.Drawing.Size(91, 286);
+            this.levelSwitchContainer.TabIndex = 0;
+            // 
+            // imgMusicCover
+            // 
+            this.imgMusicCover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.imgMusicCover.Location = new System.Drawing.Point(3, 125);
+            this.imgMusicCover.Name = "imgMusicCover";
+            this.imgMusicCover.Size = new System.Drawing.Size(300, 300);
+            this.imgMusicCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgMusicCover.TabIndex = 5;
+            this.imgMusicCover.TabStop = false;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoGenre, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoResult, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label21, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoAuthor, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.label14, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoVersion, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label17, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoRank, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.labelLevelInfoName, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 7;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(407, 114);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // labelLevelInfoGenre
+            // 
+            this.labelLevelInfoGenre.AutoEllipsis = true;
+            this.labelLevelInfoGenre.AutoSize = true;
+            this.labelLevelInfoGenre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoGenre.Location = new System.Drawing.Point(74, 34);
+            this.labelLevelInfoGenre.Name = "labelLevelInfoGenre";
+            this.labelLevelInfoGenre.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoGenre.TabIndex = 13;
+            this.labelLevelInfoGenre.TabStop = true;
+            this.labelLevelInfoGenre.Text = "INM";
+            this.labelLevelInfoGenre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLevelInfoGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelLevelInfoGenre_LinkClicked);
+            // 
+            // labelLevelInfoResult
+            // 
+            this.labelLevelInfoResult.AutoSize = true;
+            this.labelLevelInfoResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoResult.Location = new System.Drawing.Point(74, 85);
+            this.labelLevelInfoResult.Name = "labelLevelInfoResult";
+            this.labelLevelInfoResult.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoResult.TabIndex = 12;
+            this.labelLevelInfoResult.Text = "未游玩";
+            this.labelLevelInfoResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Location = new System.Drawing.Point(3, 85);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 17);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "成绩：";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelLevelInfoAuthor
+            // 
+            this.labelLevelInfoAuthor.AutoEllipsis = true;
+            this.labelLevelInfoAuthor.AutoSize = true;
+            this.labelLevelInfoAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoAuthor.Location = new System.Drawing.Point(74, 17);
+            this.labelLevelInfoAuthor.Name = "labelLevelInfoAuthor";
+            this.labelLevelInfoAuthor.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoAuthor.TabIndex = 10;
+            this.labelLevelInfoAuthor.TabStop = true;
+            this.labelLevelInfoAuthor.Text = "田所 浩二";
+            this.labelLevelInfoAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLevelInfoAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fillLevelSearchText);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Location = new System.Drawing.Point(3, 68);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 17);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "难度：";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Location = new System.Drawing.Point(3, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 17);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "加入版本：";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelLevelInfoVersion
+            // 
+            this.labelLevelInfoVersion.AutoSize = true;
+            this.labelLevelInfoVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoVersion.Location = new System.Drawing.Point(74, 51);
+            this.labelLevelInfoVersion.Name = "labelLevelInfoVersion";
+            this.labelLevelInfoVersion.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoVersion.TabIndex = 6;
+            this.labelLevelInfoVersion.Text = "v1 11.45.14";
+            this.labelLevelInfoVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Location = new System.Drawing.Point(3, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "分类：";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Location = new System.Drawing.Point(3, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 17);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "作者：";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelLevelInfoRank
+            // 
+            this.labelLevelInfoRank.AutoSize = true;
+            this.labelLevelInfoRank.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoRank.Location = new System.Drawing.Point(74, 68);
+            this.labelLevelInfoRank.Name = "labelLevelInfoRank";
+            this.labelLevelInfoRank.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoRank.TabIndex = 3;
+            this.labelLevelInfoRank.Text = "MASTER 19 (8.10)";
+            this.labelLevelInfoRank.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelLevelInfoName
+            // 
+            this.labelLevelInfoName.AutoEllipsis = true;
+            this.labelLevelInfoName.AutoSize = true;
+            this.labelLevelInfoName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLevelInfoName.Location = new System.Drawing.Point(74, 0);
+            this.labelLevelInfoName.Name = "labelLevelInfoName";
+            this.labelLevelInfoName.Size = new System.Drawing.Size(330, 17);
+            this.labelLevelInfoName.TabIndex = 2;
+            this.labelLevelInfoName.TabStop = true;
+            this.labelLevelInfoName.Text = "三哼经";
+            this.labelLevelInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLevelInfoName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fillLevelSearchText);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Location = new System.Drawing.Point(3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 17);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "曲名：";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.listLevels);
-            this.groupBox7.Location = new System.Drawing.Point(420, 6);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(0, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(513, 537);
+            this.groupBox7.Size = new System.Drawing.Size(513, 540);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "谱面列表";
@@ -1074,7 +1107,7 @@
             this.listLevels.ItemHeight = 12;
             this.listLevels.Location = new System.Drawing.Point(3, 17);
             this.listLevels.Name = "listLevels";
-            this.listLevels.Size = new System.Drawing.Size(507, 517);
+            this.listLevels.Size = new System.Drawing.Size(507, 520);
             this.listLevels.TabIndex = 0;
             this.listLevels.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listLevels_DrawItem);
             this.listLevels.SelectedIndexChanged += new System.EventHandler(this.listLevels_SelectedIndexChanged);
@@ -1113,19 +1146,22 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.groupBox9);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox8);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox10);
             this.splitContainer2.Size = new System.Drawing.Size(930, 540);
             this.splitContainer2.SplitterDistance = 413;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBox9
             // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.flowLayoutPanel1);
             this.groupBox9.Controls.Add(this.tableRecommand);
-            this.groupBox9.Location = new System.Drawing.Point(5, 112);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(0, 103);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(406, 123);
+            this.groupBox9.Size = new System.Drawing.Size(413, 123);
             this.groupBox9.TabIndex = 1;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "推荐定数表";
@@ -1222,7 +1258,7 @@
             this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableRecommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableRecommand.Size = new System.Drawing.Size(399, 77);
+            this.tableRecommand.Size = new System.Drawing.Size(406, 77);
             this.tableRecommand.TabIndex = 0;
             // 
             // label31
@@ -1240,9 +1276,9 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label30.Location = new System.Drawing.Point(348, 2);
+            this.label30.Location = new System.Drawing.Point(353, 2);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(46, 13);
+            this.label30.Size = new System.Drawing.Size(48, 13);
             this.label30.TabIndex = 11;
             this.label30.Text = "SSS+";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1295,9 +1331,9 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Location = new System.Drawing.Point(295, 2);
+            this.label25.Location = new System.Drawing.Point(299, 2);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 13);
+            this.label25.Size = new System.Drawing.Size(46, 13);
             this.label25.TabIndex = 6;
             this.label25.Text = "SSS";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1306,9 +1342,9 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label24.Location = new System.Drawing.Point(242, 2);
+            this.label24.Location = new System.Drawing.Point(245, 2);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.Size = new System.Drawing.Size(46, 13);
             this.label24.TabIndex = 5;
             this.label24.Text = "SS+";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1317,9 +1353,9 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Location = new System.Drawing.Point(189, 2);
+            this.label23.Location = new System.Drawing.Point(191, 2);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.Size = new System.Drawing.Size(46, 13);
             this.label23.TabIndex = 4;
             this.label23.Text = "SS";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1328,9 +1364,9 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Location = new System.Drawing.Point(136, 2);
+            this.label22.Location = new System.Drawing.Point(137, 2);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.Size = new System.Drawing.Size(46, 13);
             this.label22.TabIndex = 3;
             this.label22.Text = "S+";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1341,7 +1377,7 @@
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Location = new System.Drawing.Point(83, 2);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 2;
             this.label18.Text = "S";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1370,13 +1406,12 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.imgResultPlayerIcon);
             this.groupBox8.Controls.Add(this.labelRatingSummary);
-            this.groupBox8.Location = new System.Drawing.Point(5, 3);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(406, 103);
+            this.groupBox8.Size = new System.Drawing.Size(413, 103);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "总览";
@@ -1384,7 +1419,7 @@
             // imgResultPlayerIcon
             // 
             this.imgResultPlayerIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgResultPlayerIcon.Location = new System.Drawing.Point(320, 17);
+            this.imgResultPlayerIcon.Location = new System.Drawing.Point(327, 17);
             this.imgResultPlayerIcon.Name = "imgResultPlayerIcon";
             this.imgResultPlayerIcon.Size = new System.Drawing.Size(80, 80);
             this.imgResultPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1401,6 +1436,16 @@
             this.labelRatingSummary.TabIndex = 0;
             this.labelRatingSummary.Text = "Rating: 1145.14 (历史最高: 1919.81)\r\nB30: 1919\r\nR10: 6666\r\nB31-40: 7777\r\n保底Rating: 88" +
     "88\r\n不推分最高Rating: 9999";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(0, 0);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(513, 540);
+            this.groupBox10.TabIndex = 0;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Rating构成";
             // 
             // flusherResultPage
             // 
@@ -1427,6 +1472,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaIcon)).EndInit();
@@ -1437,24 +1483,28 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.grpCharaImgDescrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaBig)).EndInit();
             this.tabLevel.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgMusicCover)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgMusicCover)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabResult.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
@@ -1575,6 +1625,8 @@
         private System.Windows.Forms.CheckBox checkRecommandLvlNew;
         private System.Windows.Forms.CheckBox checkRecommandLvlPlayed;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.SplitContainer splitContainer3;
     }
 }
 
