@@ -134,11 +134,11 @@
             this.imgResultPlayerIcon = new System.Windows.Forms.PictureBox();
             this.labelRatingSummary = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.lstR10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -179,8 +179,8 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
             this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -1461,10 +1461,25 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Rating构成";
             // 
-            // flusherResultPage
+            // groupBox12
             // 
-            this.flusherResultPage.Interval = 20;
-            this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
+            this.groupBox12.Controls.Add(this.lstR10);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox12.Location = new System.Drawing.Point(3, 399);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(507, 382);
+            this.groupBox12.TabIndex = 1;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "R10";
+            // 
+            // lstR10
+            // 
+            this.lstR10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.lstR10.Location = new System.Drawing.Point(3, 17);
+            this.lstR10.Name = "lstR10";
+            this.lstR10.Size = new System.Drawing.Size(501, 362);
+            this.lstR10.TabIndex = 0;
             // 
             // groupBox11
             // 
@@ -1486,25 +1501,10 @@
             this.lstB30.Size = new System.Drawing.Size(501, 362);
             this.lstB30.TabIndex = 0;
             // 
-            // groupBox12
+            // flusherResultPage
             // 
-            this.groupBox12.Controls.Add(this.lstR10);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox12.Location = new System.Drawing.Point(3, 399);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(507, 382);
-            this.groupBox12.TabIndex = 1;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "B30";
-            // 
-            // lstR10
-            // 
-            this.lstR10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.lstR10.Location = new System.Drawing.Point(3, 17);
-            this.lstR10.Name = "lstR10";
-            this.lstR10.Size = new System.Drawing.Size(501, 362);
-            this.lstR10.TabIndex = 0;
+            this.flusherResultPage.Interval = 20;
+            this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
             // 
             // Main
             // 
@@ -1570,8 +1570,8 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
             this.groupBox10.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
