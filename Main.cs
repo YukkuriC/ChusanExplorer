@@ -556,12 +556,18 @@ namespace ChusanExplorer
             }
 
             // level lists
-            for (var i = 0; i < PlayerRatingCalculator.b30.Count; i++)
+            for (var i = 0; i < PlayerRatingCalculator.b40.Count; i++)
             {
                 lstB30.Controls.Add(genResultLink(
                     $"{i + 1:00}.",
-                    PlayerRatingCalculator.b30[i]
+                    PlayerRatingCalculator.b40[i]
                 ));
+                if (i == 29) lstB30.Controls.Add(new Label
+                {
+                    Text = "------------------------------",
+                    Margin = new Padding(0),
+                    AutoSize = true,
+                });
             }
             for (var i = 0; i < PlayerRatingCalculator.r10Chosen.Count; i++)
             {
