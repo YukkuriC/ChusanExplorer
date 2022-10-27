@@ -526,7 +526,10 @@ namespace ChusanExplorer
             // table
             for (int r = 1; r < 5; r++)
             {
-                var ratingBase = PlayerRatingCalculator.b40[recommandTableIndexes[r - 1]].Rating;
+                var idx = recommandTableIndexes[r - 1];
+                var ratingBase = idx < PlayerRatingCalculator.b40.Count ?
+                    PlayerRatingCalculator.b40[idx].Rating :
+                    0;
                 for (int c = 1; c < 8; c++)
                 {
                     Label cellToAdd;
@@ -534,7 +537,7 @@ namespace ChusanExplorer
                     else
                     {
                         var ratingDelta = ratingBase - recommandTableRatingDeltas[c - 2];
-                        if (ratingDelta <= 15.4)
+                        if (ratingDelta >= 1 && ratingDelta <= 15.4)
                         {
                             cellToAdd = new LinkLabel
                             {

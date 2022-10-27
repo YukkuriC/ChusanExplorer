@@ -112,7 +112,7 @@ namespace ChusanExplorer
             }
         }
 
-        public string GetGeneralDisplay() => $"{music.name} ({IndexNames[index]} {RankDisplay})";
+        public string GetGeneralDisplay() => $"({IndexNames[index]} {RankDisplay}) {music.name}";
 
         public override string ToString()
         {

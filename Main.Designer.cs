@@ -139,6 +139,7 @@
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1156,6 +1157,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox13);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox9);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox8);
             // 
@@ -1474,11 +1476,11 @@
             // 
             // lstR10
             // 
-            this.lstR10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstR10.Dock = System.Windows.Forms.DockStyle.Left;
             this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.lstR10.Location = new System.Drawing.Point(3, 17);
             this.lstR10.Name = "lstR10";
-            this.lstR10.Size = new System.Drawing.Size(501, 362);
+            this.lstR10.Size = new System.Drawing.Size(999, 362);
             this.lstR10.TabIndex = 0;
             // 
             // groupBox11
@@ -1494,17 +1496,27 @@
             // 
             // lstB30
             // 
-            this.lstB30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstB30.Dock = System.Windows.Forms.DockStyle.Left;
             this.lstB30.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.lstB30.Location = new System.Drawing.Point(3, 17);
             this.lstB30.Name = "lstB30";
-            this.lstB30.Size = new System.Drawing.Size(501, 362);
+            this.lstB30.Size = new System.Drawing.Size(999, 362);
             this.lstB30.TabIndex = 0;
             // 
             // flusherResultPage
             // 
             this.flusherResultPage.Interval = 20;
             this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox13.Location = new System.Drawing.Point(0, 226);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(413, 193);
+            this.groupBox13.TabIndex = 2;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "groupBox13";
             // 
             // Main
             // 
@@ -1688,6 +1700,7 @@
         private System.Windows.Forms.FlowLayoutPanel lstR10;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.FlowLayoutPanel lstB30;
+        private System.Windows.Forms.GroupBox groupBox13;
     }
 }
 

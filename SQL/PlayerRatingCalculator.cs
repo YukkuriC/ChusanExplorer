@@ -19,6 +19,7 @@ namespace ChusanExplorer
         {
             // lists
             b40 = (from level in MusicLevelLoader.levelAll
+                   where level.index != 5
                    let p = level.GetProfile()
                    where p != null
                    select p).ToList();
@@ -37,14 +38,14 @@ namespace ChusanExplorer
             ratingB30 = ratingB40 = ratingB31_40 = ratingR10 = ratingR30 = ratingR10Chosen = 0;
             if (b40.Count > 0)
             {
-                ratingB40 = b40.Average(getRating);
-                ratingB30 = b30.Average(getRating);
-                if (b31_40.Count > 0) ratingB31_40 = b31_40.Average(getRating);
+                ratingB40 = b40.Average(getRating) * b40.Count / 40;
+                ratingB30 = b30.Average(getRating) * b30.Count / 30;
+                if (b31_40.Count > 0) ratingB31_40 = b31_40.Average(getRating) * b31_40.Count / 10;
             }
             if (Selected.player.r30.Count > 0)
             {
-                ratingR30 = Selected.player.r30.Average(getRating);
-                if (r10.Count > 0) ratingR10 = r10.Average(getRating);
+                ratingR30 = Selected.player.r30.Average(getRating) * Selected.player.r30.Count / 30;
+                if (r10.Count > 0) ratingR10 = r10.Average(getRating) * r10.Count / 10;
             }
             if (r10Chosen.Count > 0) ratingR10Chosen = r10Chosen.Average(getRating);
             r10ChosenCount = (from r in r10Chosen where r.isRecentScore select r).Count();
