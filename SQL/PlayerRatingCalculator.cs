@@ -49,7 +49,7 @@ namespace ChusanExplorer
             }
             if (r10Chosen.Count > 0) ratingR10Chosen = r10Chosen.Average(getRating);
             r10ChosenCount = (from r in r10Chosen where r.isRecentScore select r).Count();
-            rating = (ratingB30 * 3 + ratingR10Chosen) / 4;
+            rating = (float)(Math.Floor(ratingB30 * 100) * 3 + Math.Floor(ratingR10Chosen * 100)) / 400;
             ratingTheory = b40.Count > 0 ? (ratingB30 * 3 + b40[0].Rating) / 4 : rating;
         }
 
