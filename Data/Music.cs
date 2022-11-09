@@ -57,7 +57,7 @@ namespace ChusanExplorer
             {
                 if (index == 5) return music.WEType;
                 var res = level.ToString();
-                if (level >= 7 && levelSub > 50) res += "+";
+                if (level >= 7 && levelSub >= 50) res += "+";
                 return res;
             }
         }
