@@ -505,6 +505,8 @@ namespace ChusanExplorer
 
         private void flushResultPage(object sender, EventArgs e)
         {
+            tabResult.Hide();
+
             refreshResultPageImages();
             #region clear page
             labelRatingSummary.Text = "寄";
@@ -578,6 +580,7 @@ namespace ChusanExplorer
                 ));
             }
 
+            tabResult.Show();
             flusherResultPage.Enabled = false;
         }
 

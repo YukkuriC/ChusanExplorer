@@ -110,6 +110,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabResult = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.lstR10 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -135,8 +137,6 @@
             this.imgResultPlayerIcon = new System.Windows.Forms.PictureBox();
             this.labelRatingSummary = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.lstR10 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
@@ -174,13 +174,13 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableRecommand.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
             this.groupBox10.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1127,9 +1127,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabResult);
             this.tabControl1.Controls.Add(this.tabLevel);
             this.tabControl1.Controls.Add(this.tabChara);
-            this.tabControl1.Controls.Add(this.tabResult);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 29);
             this.tabControl1.Name = "tabControl1";
@@ -1168,6 +1168,26 @@
             this.splitContainer2.Size = new System.Drawing.Size(930, 540);
             this.splitContainer2.SplitterDistance = 413;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.lstR10);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox12.Location = new System.Drawing.Point(0, 399);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(999, 141);
+            this.groupBox12.TabIndex = 1;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "R10";
+            // 
+            // lstR10
+            // 
+            this.lstR10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.lstR10.Location = new System.Drawing.Point(3, 17);
+            this.lstR10.Name = "lstR10";
+            this.lstR10.Size = new System.Drawing.Size(999, 121);
+            this.lstR10.TabIndex = 0;
             // 
             // groupBox13
             // 
@@ -1473,26 +1493,6 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Rating构成";
             // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.lstR10);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox12.Location = new System.Drawing.Point(0, 399);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(999, 141);
-            this.groupBox12.TabIndex = 1;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "R10";
-            // 
-            // lstR10
-            // 
-            this.lstR10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lstR10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.lstR10.Location = new System.Drawing.Point(3, 17);
-            this.lstR10.Name = "lstR10";
-            this.lstR10.Size = new System.Drawing.Size(999, 121);
-            this.lstR10.TabIndex = 0;
-            // 
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.lstB30);
@@ -1573,6 +1573,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -1582,7 +1583,6 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
             this.groupBox10.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
