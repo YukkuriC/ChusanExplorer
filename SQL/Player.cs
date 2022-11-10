@@ -106,7 +106,7 @@ namespace ChusanExplorer
                             score = Convert.ToInt32(splitted[2]),
                         });
                     }
-                    r30.Sort(Helpers.levelRatingDec);
+                    //r30.Sort(Helpers.levelRatingDec);
                 }
             }
         }

@@ -28,7 +28,9 @@ namespace ChusanExplorer
             b30 = b40.GetRange(0, Math.Min(30, b40.Count));
             b31_40 = b30.Count == 30 ? b40.GetRange(30, Math.Min(10, b40.Count - 30)) : new List<PlayerLevelResult>();
 
-            r10 = Selected.player.r30.GetRange(0, Math.Min(10, Selected.player.r30.Count));
+            var r30 = Selected.player.r30.ToList();
+            r30.Sort(Helpers.levelRatingDec);
+            r10 = r30.GetRange(0, Math.Min(10, r30.Count));
             r10Chosen = r10.ToList();
             r10Chosen.AddRange(b31_40);
             r10Chosen.Sort(Helpers.levelRatingDec);

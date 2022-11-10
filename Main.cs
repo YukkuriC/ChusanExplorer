@@ -144,6 +144,9 @@ namespace ChusanExplorer
             if (Selected.player != null)
             {
                 Storage.Characters.TryGetValue(Selected.player.chara, out Selected.chara);
+                var lastPlayed = Selected.player.r30[0];
+                Storage.Music.TryGetValue(lastPlayed.musicId, out Music lastMusic);
+                if (lastMusic != null) Selected.level = lastMusic.levels[lastPlayed.levelId];
             }
         }
         #endregion
