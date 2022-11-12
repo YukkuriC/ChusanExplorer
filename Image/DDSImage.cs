@@ -10,9 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ChusanExplorer{
-    public abstract class DDSImageBase
+    public class DDSImage
     {
-        public abstract string ImgPath { get; }
+        public string ImgPath { get; private set; }
+
+        public DDSImage(string path)
+        {
+            ImgPath = path;
+        }
 
         public bool loadFailed = false;
         public bool Valid
@@ -58,17 +63,6 @@ namespace ChusanExplorer{
                 }
                 return bitmap;
             }
-        }
-    }
-
-    public class DDSImage : DDSImageBase
-    {
-        string _path;
-        public override string ImgPath { get => _path; }
-
-        public DDSImage(string path)
-        {
-            _path = path;
         }
     }
 }
