@@ -17,26 +17,23 @@ namespace ChusanExplorer
         public MusicLevel[] levels = new MusicLevel[LEVEL_COUNT];
         public DDSImage cover;
 
-        public Music(string rootDir, int index, string packName)
+        public Music(DirectoryInfo dir, string packName)
         {
-            id = index;
             pack = packName;
-
-            var doc = new XmlDocument();
-            doc.Load(Path.Combine(rootDir, "Music.xml"));
-            var root = doc.DocumentElement;
-            name = root.SelectSingleNode("name/str").InnerText;
-            musicId = Convert.ToInt32(root.SelectSingleNode("name/id").InnerText);
-            version = root.SelectSingleNode("releaseTagName/str").InnerText;
-            author = root.SelectSingleNode("artistName/str").InnerText;
-            genre = root.SelectSingleNode("genreNames/list/StringID/str").InnerText;
-            WEType = root.SelectSingleNode("worldsEndTagName/str")?.InnerText ?? WENull;
-            cover = new DDSImage(Path.Combine(rootDir, root.SelectSingleNode("jaketFile/path").InnerText));
+            var root = Helpers.GetDataFromFolder(dir);
+            id = root.GetId();
+            name = root.Get("name/str");
+            musicId = Convert.ToInt32(root.Get("cueFileName/id"));
+            version = root.Get("releaseTagName/str");
+            author = root.Get("artistName/str");
+            genre = root.Get("genreNames/list/StringID/str");
+            WEType = root.Get("worldsEndTagName/str") ?? WENull;
+            cover = new DDSImage(Path.Combine(dir.FullName, root.Get("jaketFile/path")));
 
             var levelRoot = root.SelectSingleNode("fumens");
             foreach (XmlNode node in levelRoot.ChildNodes)
             {
-                if (node.SelectSingleNode("enable")?.InnerText != "true") continue;
+                if (node.Get("enable") != "true") continue;
                 var level = new MusicLevel(this, node);
                 levels[level.index] = level;
             }

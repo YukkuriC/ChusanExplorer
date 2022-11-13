@@ -103,22 +103,20 @@ namespace ChusanExplorer
             }
         }
 
-        public Character(string dirChara, int code, string packName)
+        public Character(DirectoryInfo rootDir, string packName)
         {
             pack = packName;
-            id = code;
-            var doc = new XmlDocument();
-            doc.Load(Path.Combine(dirChara, string.Format("chara{0:D6}/Chara.xml", code)));
-            var root = doc.DocumentElement;
-            name = root.SelectSingleNode("name/str").InnerText;
-            type = root.SelectSingleNode("works/str").InnerText;
-            version = root.SelectSingleNode("releaseTagName/str").InnerText;
-            illustrator = root.SelectSingleNode("illustratorName/str").InnerText;
+            var root = Helpers.GetDataFromFolder(rootDir);
+            id = root.GetId();
+            name = root.Get("name/str");
+            type = root.Get("works/str");
+            version = root.Get("releaseTagName/str");
+            illustrator = root.Get("illustratorName/str");
 
             #region images
             images = new List<CharaImageGroup>();
             // defaultImages
-            var idDef = Convert.ToInt32(root.SelectSingleNode("defaultImages/id").InnerText);
+            var idDef = Convert.ToInt32(root.Get("defaultImages/id"));
             Storage.DDSChara.TryGetValue(idDef, out var imgDef);
             if (imgDef?.Valid ?? false)
             {
@@ -130,8 +128,8 @@ namespace ChusanExplorer
             {
                 var imgNode = root.SelectSingleNode($"addImages{i}");
                 if (imgNode?.SelectSingleNode("changeImg")?.InnerText != "true") break;
-                var altName = imgNode.SelectSingleNode("charaName/str")?.InnerText ?? $"立绘{i + 1}";
-                var imgId = Convert.ToInt32(imgNode.SelectSingleNode("image/id").InnerText);
+                var altName = imgNode.Get("charaName/str") ?? $"立绘{i + 1}";
+                var imgId = Convert.ToInt32(imgNode.Get("image/id"));
                 Storage.DDSChara.TryGetValue(imgId, out var img);
                 if (imgDef?.Valid ?? false)
                 {
@@ -140,7 +138,7 @@ namespace ChusanExplorer
                 }
             }
             // validation
-            if (images.Count == 0) throw new Exception($"角色无可用立绘 ({dirChara})");
+            if (images.Count == 0) throw new Exception($"角色无可用立绘 ({id})");
             #endregion
         }
     }

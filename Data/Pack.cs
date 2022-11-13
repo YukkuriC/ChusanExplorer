@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,11 +73,9 @@ namespace ChusanExplorer
             if (dirChara == null) return;
             foreach (var sub in dirChara.GetDirectories())
             {
-                if (!sub.Name.StartsWith("chara")) continue;
                 try
                 {
-                    int index = Convert.ToInt32(sub.Name.Substring(5));
-                    var chara = new Character(dirChara.FullName, index, name);
+                    var chara = new Character(sub, name);
                     characters.Add(chara);
                     Storage.Characters.Push(chara);
                 }
@@ -93,11 +91,9 @@ namespace ChusanExplorer
             if (dirMusic == null) return;
             foreach (var sub in dirMusic.GetDirectories())
             {
-                if (!sub.Name.StartsWith("music")) continue;
                 try
                 {
-                    int index = Convert.ToInt32(sub.Name.Substring(5));
-                    var music = new Music(sub.FullName, index, name);
+                    var music = new Music(sub, name);
                     Storage.Music.Push(music);
                     foreach (var level in music.levels)
                     {

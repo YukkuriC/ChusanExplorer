@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ChusanExplorer
 {
@@ -28,5 +30,19 @@ namespace ChusanExplorer
         }
 
         public static Comparison<PlayerLevelResult> levelRatingDec = (PlayerLevelResult a, PlayerLevelResult b) => b.Rating > a.Rating ? 1 : b.Rating == a.Rating ? 0 : -1;
+
+        public static XmlNode GetDataFromFolder(DirectoryInfo dir)
+        {
+            var xmlFiles = dir.GetFiles("*.xml");
+            if (xmlFiles.Length != 1)
+                throw new Exception("目录下xml数量异常");
+            var doc = new XmlDocument();
+            doc.Load(xmlFiles[0].FullName);
+            return doc.DocumentElement;
+        }
+
+        public static string Get(this XmlNode rootNode, string path) => rootNode.SelectSingleNode(path)?.InnerText;
+        public static int GetId(this XmlNode rootNode) => Convert.ToInt32(rootNode.Get("name/id"));
+        public static string GetName(this XmlNode rootNode) => rootNode.Get("name/str");
     }
 }
