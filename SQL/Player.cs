@@ -10,7 +10,8 @@ namespace ChusanExplorer
     public class Player
     {
         public string name;
-        public int id, rating, highestRating, chara, charaIllust, voice, nameplate, trophy;
+        public int id, rating, highestRating, chara, charaIllust;
+        public PlayerItemProfile itemProfile;
         public Player(SQLiteDataReader r)
         {
             InitBase(r);
@@ -23,9 +24,13 @@ namespace ChusanExplorer
             highestRating = Convert.ToInt32(r["highest_rating"]);
             chara = Convert.ToInt32(r["character_id"]);
             charaIllust = Convert.ToInt32(r["chara_illust_id"]);
-            voice = Convert.ToInt32(r["voice_id"]);
-            nameplate = Convert.ToInt32(r["nameplate_id"]);
-            trophy = Convert.ToInt32(r["trophy_id"]);
+            itemProfile = new PlayerItemProfile
+            {
+                SystemVoice = Convert.ToInt32(r["voice_id"]),
+                NamePlate = Convert.ToInt32(r["nameplate_id"]),
+                Trophy = Convert.ToInt32(r["trophy_id"]),
+                MapIcon = Convert.ToInt32(r["map_icon_id"]),
+            };
         }
         public override string ToString() => $"#{id} {name}";
 
@@ -35,6 +40,7 @@ namespace ChusanExplorer
             if (initFlag) return;
             loadCharaProfiles();
             loadSongResults();
+            loadItems();
             initFlag = true;
         }
 
@@ -109,6 +115,17 @@ namespace ChusanExplorer
                     //r30.Sort(Helpers.levelRatingDec);
                 }
             }
+        }
+        #endregion
+
+        #region items
+        public ItemGroup myNamePlate, myTrophy, myMapIcon, mySystemVoice;
+        void loadItems()
+        {
+            myNamePlate = new ItemGroup(id, 1);
+            myTrophy = new ItemGroup(id, 3);
+            myMapIcon = new ItemGroup(id, 8);
+            mySystemVoice = new ItemGroup(id, 9);
         }
         #endregion
     }

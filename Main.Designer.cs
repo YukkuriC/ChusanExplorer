@@ -107,7 +107,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listLevels = new System.Windows.Forms.ListBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabResult = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -139,7 +139,25 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabVisuals = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.chooseItemSort = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.chooseItemType = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textItemSearch = new System.Windows.Forms.TextBox();
+            this.checkItemShowNotOwned = new System.Windows.Forms.CheckBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.poolPlayerItems = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.imgSystemVoice = new System.Windows.Forms.PictureBox();
+            this.labelTrophy = new System.Windows.Forms.Label();
+            this.imgMapIcon = new System.Windows.Forms.PictureBox();
+            this.imgNamePlate = new System.Windows.Forms.PictureBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
+            this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -168,7 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgMusicCover)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
             this.tabResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -182,6 +200,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.tabVisuals.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -232,17 +258,14 @@
             // 
             // flusherCharaList
             // 
-            this.flusherCharaList.Interval = 20;
             this.flusherCharaList.Tick += new System.EventHandler(this.flushCharaList);
             // 
             // flusherMusicList
             // 
-            this.flusherMusicList.Interval = 20;
             this.flusherMusicList.Tick += new System.EventHandler(this.flushMusicList);
             // 
             // flusherCharaProfile
             // 
-            this.flusherCharaProfile.Interval = 20;
             this.flusherCharaProfile.Tick += new System.EventHandler(this.flushCharaProfile);
             // 
             // tabChara
@@ -1125,17 +1148,18 @@
             this.listLevels.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listLevels_DrawItem);
             this.listLevels.SelectedIndexChanged += new System.EventHandler(this.listLevels_SelectedIndexChanged);
             // 
-            // tabControl1
+            // tabControlMain
             // 
-            this.tabControl1.Controls.Add(this.tabResult);
-            this.tabControl1.Controls.Add(this.tabLevel);
-            this.tabControl1.Controls.Add(this.tabChara);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 29);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(944, 572);
-            this.tabControl1.TabIndex = 5;
+            this.tabControlMain.Controls.Add(this.tabResult);
+            this.tabControlMain.Controls.Add(this.tabLevel);
+            this.tabControlMain.Controls.Add(this.tabChara);
+            this.tabControlMain.Controls.Add(this.tabVisuals);
+            this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlMain.Location = new System.Drawing.Point(0, 29);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(944, 572);
+            this.tabControlMain.TabIndex = 5;
             // 
             // tabResult
             // 
@@ -1513,17 +1537,206 @@
             this.lstB30.Size = new System.Drawing.Size(999, 500);
             this.lstB30.TabIndex = 0;
             // 
+            // tabVisuals
+            // 
+            this.tabVisuals.Controls.Add(this.groupBox16);
+            this.tabVisuals.Controls.Add(this.groupBox15);
+            this.tabVisuals.Controls.Add(this.groupBox14);
+            this.tabVisuals.Location = new System.Drawing.Point(4, 22);
+            this.tabVisuals.Name = "tabVisuals";
+            this.tabVisuals.Size = new System.Drawing.Size(936, 546);
+            this.tabVisuals.TabIndex = 5;
+            this.tabVisuals.Text = "装扮";
+            this.tabVisuals.UseVisualStyleBackColor = true;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox16.Location = new System.Drawing.Point(646, 3);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(284, 162);
+            this.groupBox16.TabIndex = 7;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "选项";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.42647F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.57353F));
+            this.tableLayoutPanel5.Controls.Add(this.chooseItemSort, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label35, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label34, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.chooseItemType, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label33, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textItemSearch, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.checkItemShowNotOwned, 0, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 11);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(272, 99);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // chooseItemSort
+            // 
+            this.chooseItemSort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chooseItemSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chooseItemSort.FormattingEnabled = true;
+            this.chooseItemSort.Location = new System.Drawing.Point(64, 27);
+            this.chooseItemSort.Name = "chooseItemSort";
+            this.chooseItemSort.Size = new System.Drawing.Size(205, 20);
+            this.chooseItemSort.TabIndex = 8;
+            this.chooseItemSort.SelectedIndexChanged += new System.EventHandler(this.playerItemFilterChanged);
+            // 
+            // label35
+            // 
+            this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label35.Location = new System.Drawing.Point(3, 48);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(55, 24);
+            this.label35.TabIndex = 7;
+            this.label35.Text = "搜索名称";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label34.Location = new System.Drawing.Point(3, 24);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(55, 24);
+            this.label34.TabIndex = 5;
+            this.label34.Text = "排序方式";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chooseItemType
+            // 
+            this.chooseItemType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chooseItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chooseItemType.FormattingEnabled = true;
+            this.chooseItemType.Location = new System.Drawing.Point(64, 3);
+            this.chooseItemType.Name = "chooseItemType";
+            this.chooseItemType.Size = new System.Drawing.Size(205, 20);
+            this.chooseItemType.TabIndex = 4;
+            this.chooseItemType.SelectedIndexChanged += new System.EventHandler(this.playerItemFilterChanged);
+            // 
+            // label33
+            // 
+            this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label33.Location = new System.Drawing.Point(3, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(55, 24);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "显示类型";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textItemSearch
+            // 
+            this.textItemSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textItemSearch.Location = new System.Drawing.Point(64, 51);
+            this.textItemSearch.Name = "textItemSearch";
+            this.textItemSearch.Size = new System.Drawing.Size(205, 21);
+            this.textItemSearch.TabIndex = 6;
+            this.textItemSearch.TextChanged += new System.EventHandler(this.playerItemFilterChanged);
+            // 
+            // checkItemShowNotOwned
+            // 
+            this.checkItemShowNotOwned.AutoSize = true;
+            this.tableLayoutPanel5.SetColumnSpan(this.checkItemShowNotOwned, 2);
+            this.checkItemShowNotOwned.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkItemShowNotOwned.Location = new System.Drawing.Point(3, 75);
+            this.checkItemShowNotOwned.Name = "checkItemShowNotOwned";
+            this.checkItemShowNotOwned.Size = new System.Drawing.Size(266, 21);
+            this.checkItemShowNotOwned.TabIndex = 9;
+            this.checkItemShowNotOwned.Text = "显示未获得的道具";
+            this.checkItemShowNotOwned.UseVisualStyleBackColor = true;
+            this.checkItemShowNotOwned.CheckedChanged += new System.EventHandler(this.playerItemFilterChanged);
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.poolPlayerItems);
+            this.groupBox15.Location = new System.Drawing.Point(3, 164);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(930, 379);
+            this.groupBox15.TabIndex = 6;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "可选列表";
+            // 
+            // poolPlayerItems
+            // 
+            this.poolPlayerItems.AutoScroll = true;
+            this.poolPlayerItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poolPlayerItems.Location = new System.Drawing.Point(3, 17);
+            this.poolPlayerItems.Name = "poolPlayerItems";
+            this.poolPlayerItems.Size = new System.Drawing.Size(924, 359);
+            this.poolPlayerItems.TabIndex = 0;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.imgSystemVoice);
+            this.groupBox14.Controls.Add(this.labelTrophy);
+            this.groupBox14.Controls.Add(this.imgMapIcon);
+            this.groupBox14.Controls.Add(this.imgNamePlate);
+            this.groupBox14.Location = new System.Drawing.Point(3, 3);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(637, 162);
+            this.groupBox14.TabIndex = 5;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "预览";
+            // 
+            // imgSystemVoice
+            // 
+            this.imgSystemVoice.Location = new System.Drawing.Point(3, 20);
+            this.imgSystemVoice.Name = "imgSystemVoice";
+            this.imgSystemVoice.Size = new System.Drawing.Size(200, 128);
+            this.imgSystemVoice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgSystemVoice.TabIndex = 2;
+            this.imgSystemVoice.TabStop = false;
+            // 
+            // labelTrophy
+            // 
+            this.labelTrophy.Location = new System.Drawing.Point(343, 133);
+            this.labelTrophy.Name = "labelTrophy";
+            this.labelTrophy.Size = new System.Drawing.Size(288, 15);
+            this.labelTrophy.TabIndex = 4;
+            this.labelTrophy.Text = "我是称号";
+            this.labelTrophy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // imgMapIcon
+            // 
+            this.imgMapIcon.Location = new System.Drawing.Point(209, 20);
+            this.imgMapIcon.Name = "imgMapIcon";
+            this.imgMapIcon.Size = new System.Drawing.Size(128, 128);
+            this.imgMapIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgMapIcon.TabIndex = 3;
+            this.imgMapIcon.TabStop = false;
+            // 
+            // imgNamePlate
+            // 
+            this.imgNamePlate.Location = new System.Drawing.Point(343, 20);
+            this.imgNamePlate.Name = "imgNamePlate";
+            this.imgNamePlate.Size = new System.Drawing.Size(288, 114);
+            this.imgNamePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgNamePlate.TabIndex = 1;
+            this.imgNamePlate.TabStop = false;
+            // 
             // flusherResultPage
             // 
-            this.flusherResultPage.Interval = 20;
             this.flusherResultPage.Tick += new System.EventHandler(this.flushResultPage);
+            // 
+            // flusherPlayerItems
+            // 
+            this.flusherPlayerItems.Tick += new System.EventHandler(this.flushPlayerItems);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 601);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -1567,7 +1780,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlMain.ResumeLayout(false);
             this.tabResult.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -1584,6 +1797,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgResultPlayerIcon)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
+            this.tabVisuals.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1666,7 +1888,7 @@
         private System.Windows.Forms.ComboBox chooseMusicSort;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ListBox listLevels;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.GroupBox grpCharaImgDescrip;
         private System.Windows.Forms.Timer flusherResultPage;
         private System.Windows.Forms.TabPage tabResult;
@@ -1701,6 +1923,24 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.FlowLayoutPanel lstB30;
         private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TabPage tabVisuals;
+        private System.Windows.Forms.Timer flusherPlayerItems;
+        private System.Windows.Forms.PictureBox imgMapIcon;
+        private System.Windows.Forms.PictureBox imgSystemVoice;
+        private System.Windows.Forms.PictureBox imgNamePlate;
+        private System.Windows.Forms.Label labelTrophy;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.FlowLayoutPanel poolPlayerItems;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.ComboBox chooseItemSort;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.ComboBox chooseItemType;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textItemSearch;
+        private System.Windows.Forms.CheckBox checkItemShowNotOwned;
     }
 }
 

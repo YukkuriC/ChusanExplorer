@@ -21,9 +21,15 @@ namespace ChusanExplorer
             }
             this[obj.id] = obj;
         }
+
+        public T TryGet(int id)
+        {
+            TryGetValue(id, out T res);
+            return res;
+        }
     }
 
-    public static class Storage
+    public static partial class Storage
     {
         public static IDStorage<Character> Characters = new IDStorage<Character>();
         public static IDStorage<CharaImageGroup> DDSChara = new IDStorage<CharaImageGroup>();

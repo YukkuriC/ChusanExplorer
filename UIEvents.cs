@@ -12,5 +12,7 @@ namespace ChusanExplorer
         public static Action CharaListApply, MusicListApply;
         public static Action PlayerCharaProfileChanged;
         public static Action RefreshResultPage;
+        public static Action RefreshPlayerItems, RefreshPlayerItemSet, RefreshPlayerItemPool;
+        public static Action<BaseItem> PlayerItemSelect;
     }
 }

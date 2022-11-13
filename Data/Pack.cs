@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +8,15 @@ using System.Windows.Forms;
 
 namespace ChusanExplorer
 {
-    public class Pack
+    public partial class Pack
     {
         public DirectoryInfo root, dirChara, dirCharaImage, dirMusic;
+        public DirectoryInfo dirNamePlate, dirSystemVoice, dirTrophy, dirMapIcon;
         public string name;
 
         public List<Character> characters;
         public List<MusicLevel> levels;
+        public List<BaseItem> namePlates, trophies, mapIcons, systemVoices;
 
         public bool hasContent
         {
@@ -44,10 +46,20 @@ namespace ChusanExplorer
                     case "music":
                         dirMusic = sub;
                         break;
+                    case "namePlate":
+                        dirNamePlate = sub;
+                        break;
+                    case "systemVoice":
+                        dirSystemVoice = sub;
+                        break;
+                    case "trophy":
+                        dirTrophy = sub;
+                        break;
+                    case "mapIcon":
+                        dirMapIcon = sub;
+                        break;
                 }
             }
-
-            // TODO maps, songs
         }
         public void LoadCharaImages()
         {
@@ -107,6 +119,26 @@ namespace ChusanExplorer
                 }
             }
         }
+        void loadItemInFolder(DirectoryInfo dir, out List<BaseItem> res, ref IDStorage<BaseItem> storage)
+        {
+            res = new List<BaseItem>();
+            if (dir == null) return;
+            foreach (var sub in dir.GetDirectories())
+            {
+                try
+                {
+                    var item = new BaseItem(sub);
+                    res.Add(item);
+                    storage.Push(item);
+                }
+                catch (Exception e)
+                {
+                    e.ShowError($"加载道具{sub.Name}出错 ({name})");
+                }
+            }
+
+            return;
+        }
 
         public override string ToString() => name;
     }
@@ -151,7 +183,8 @@ namespace ChusanExplorer
             foreach (var p in packs) p.LoadCharaImages();
             foreach (var p in packs) p.LoadCharacters();
             foreach (var p in packs) p.LoadMusic();
-            // TODO maps, songs, nameplates, etc.
+            foreach (var p in packs) p.LoadItems();
+            // TODO maps, etc.
 
             Loaded.Invoke();
         }

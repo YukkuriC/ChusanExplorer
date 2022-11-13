@@ -14,9 +14,11 @@ namespace ChusanExplorer
     {
         Random rand;
         bool isLoading;
+        public static Main instance;
 
         public Main()
         {
+            instance = this;
             isLoading = true;
             rand = new Random();
             InitializeComponent();
@@ -33,6 +35,8 @@ namespace ChusanExplorer
         #region loading flow
         void InitComponentDataStatic()
         {
+            chooseItemType.DataSource = ItemDescriptor.choices;
+            chooseItemSort.DataSource = ItemSortTypes.AllMethods;
         }
 
         void InitComponentData()
@@ -73,70 +77,10 @@ namespace ChusanExplorer
                 choosePlayer.Enabled = choosePlayer.Items.Count > 0;
             };
 
-            #region flushers
-            UIEvents.PlayerCharaProfileChanged += () =>
-            {
-                flusherCharaProfile.Enabled = true;
-                if (Selected.chara != null && Selected.chara.GetProfile() == null && Selected.chara.id == Selected.player?.chara) // 玩家选定角色被撅了
-                {
-                    PlayerCharaProfileLoader.SetPlayerChoice(Storage.Characters.Values.First((Character c) => c.GetProfile() != null));
-                    refreshResultPageImages();
-                }
-            };
-            UIEvents.CharaListApply += () => flusherCharaList.Enabled = true;
-            UIEvents.MusicListApply += () => flusherMusicList.Enabled = true;
-            UIEvents.RefreshResultPage += () => flusherResultPage.Enabled = true;
-            #endregion
-
-            #region tab chara
-            CharacterListLoader.Loaded += () =>
-            {
-                chooseCharaType.Items.Clear();
-                chooseCharaType.Items.Add(Config.ALL);
-                var types = CharacterListLoader.charaByType.Keys.ToList();
-                types.Sort();
-                chooseCharaType.Items.AddRange(types.ToArray());
-                chooseCharaType.SelectedIndex = 0;
-                UIEvents.CharaListApply.Invoke();
-            };
-            #endregion
-
-            #region tab music
-            MusicLevelLoader.Loaded += () =>
-            {
-                chooseMusicGenre.Items.Clear();
-                chooseMusicGenre.Items.Add(Config.ALL);
-                var types = MusicLevelLoader.levelByGenre.Keys.ToArray();
-                chooseMusicGenre.Items.AddRange(types);
-
-                HashSet<int> allTypes = new HashSet<int>();
-                HashSet<string> allRanks = new HashSet<string>();
-                foreach (var l in MusicLevelLoader.levelAll)
-                {
-                    allTypes.Add(l.index);
-                    allRanks.Add(l.RankDisplay);
-                }
-                chooseLevelType.Items.Clear();
-                chooseLevelType.Items.Add(Config.ALL);
-                for (int i = 0; i < 6; i++)
-                    if (allTypes.Contains(i))
-                        chooseLevelType.Items.Add(MusicLevel.IndexNames[i]);
-                chooseLevelRank.Items.Clear();
-                chooseLevelRank.Items.Add(Config.ALL);
-                for (int i = 1; i <= 15; i++)
-                {
-                    var s = i.ToString();
-                    if (allRanks.Contains(s)) chooseLevelRank.Items.Add(s);
-                    s += "+";
-                    if (allRanks.Contains(s)) chooseLevelRank.Items.Add(s);
-                }
-
-                chooseMusicGenre.SelectedIndex = 0;
-                chooseLevelType.SelectedIndex = 0;
-                chooseLevelRank.SelectedIndex = 0;
-                UIEvents.MusicListApply.Invoke();
-            };
-            #endregion
+            InitEventsChara();
+            InitEventsMusic();
+            InitEventsResults();
+            InitEventsItem();
         }
 
         void onFirstLoad()
@@ -159,16 +103,41 @@ namespace ChusanExplorer
             InitComponentData();
             UIEvents.PlayerCharaProfileChanged.Invoke();
             UIEvents.RefreshResultPage.Invoke();
+            UIEvents.RefreshPlayerItems.Invoke();
         }
 
         private void choosePack_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PackLoader.packMap.TryGetValue(choosePack.Text, out Pack pack);
-            UIEvents.PackChoiceChanged.Invoke(pack);
+            PackLoader.packMap.TryGetValue(choosePack.Text, out Selected.pack);
+            UIEvents.PackChoiceChanged.Invoke(Selected.pack);
             UIEvents.RefreshResultPage.Invoke();
         }
 
         #region tab chara
+        void InitEventsChara()
+        {
+            UIEvents.PlayerCharaProfileChanged += () =>
+            {
+                flusherCharaProfile.Enabled = true;
+                if (Selected.chara != null && Selected.chara.GetProfile() == null && Selected.chara.id == Selected.player?.chara) // 玩家选定角色被撅了
+                {
+                    PlayerCharaProfileLoader.SetPlayerChoice(Storage.Characters.Values.First((Character c) => c.GetProfile() != null));
+                    refreshResultPageImages();
+                }
+            };
+            UIEvents.CharaListApply += () => flusherCharaList.Enabled = true;
+            CharacterListLoader.Loaded += () =>
+            {
+                chooseCharaType.Items.Clear();
+                chooseCharaType.Items.Add(Config.ALL);
+                var types = CharacterListLoader.charaByType.Keys.ToList();
+                types.Sort();
+                chooseCharaType.Items.AddRange(types.ToArray());
+                chooseCharaType.SelectedIndex = 0;
+                UIEvents.CharaListApply.Invoke();
+            };
+        }
+
         private void charaTypeChanged(object sender, EventArgs e)
         {
             CharacterListLoader.type = chooseCharaType.Text;
@@ -302,6 +271,45 @@ namespace ChusanExplorer
         #endregion
 
         #region tab music
+        void InitEventsMusic()
+        {
+            UIEvents.MusicListApply += () => flusherMusicList.Enabled = true;
+            MusicLevelLoader.Loaded += () =>
+            {
+                chooseMusicGenre.Items.Clear();
+                chooseMusicGenre.Items.Add(Config.ALL);
+                var types = MusicLevelLoader.levelByGenre.Keys.ToArray();
+                chooseMusicGenre.Items.AddRange(types);
+
+                HashSet<int> allTypes = new HashSet<int>();
+                HashSet<string> allRanks = new HashSet<string>();
+                foreach (var l in MusicLevelLoader.levelAll)
+                {
+                    allTypes.Add(l.index);
+                    allRanks.Add(l.RankDisplay);
+                }
+                chooseLevelType.Items.Clear();
+                chooseLevelType.Items.Add(Config.ALL);
+                for (int i = 0; i < 6; i++)
+                    if (allTypes.Contains(i))
+                        chooseLevelType.Items.Add(MusicLevel.IndexNames[i]);
+                chooseLevelRank.Items.Clear();
+                chooseLevelRank.Items.Add(Config.ALL);
+                for (int i = 1; i <= 15; i++)
+                {
+                    var s = i.ToString();
+                    if (allRanks.Contains(s)) chooseLevelRank.Items.Add(s);
+                    s += "+";
+                    if (allRanks.Contains(s)) chooseLevelRank.Items.Add(s);
+                }
+
+                chooseMusicGenre.SelectedIndex = 0;
+                chooseLevelType.SelectedIndex = 0;
+                chooseLevelRank.SelectedIndex = 0;
+                UIEvents.MusicListApply.Invoke();
+            };
+        }
+
         private void chooseMusicGenre_SelectedIndexChanged(object sender, EventArgs e)
         {
             MusicLevelLoader.genre = chooseMusicGenre.Text;
@@ -451,6 +459,11 @@ namespace ChusanExplorer
         #endregion
 
         #region tab result
+        void InitEventsResults()
+        {
+            UIEvents.RefreshResultPage += () => flusherResultPage.Enabled = true;
+        }
+
         void refreshResultPageImages()
         {
             imgResultPlayerIcon.Image = null;
@@ -464,7 +477,7 @@ namespace ChusanExplorer
 
         void switchToLevel(MusicLevel target)
         {
-            (tabLevel.Parent as TabControl).SelectedTab = tabLevel;
+            tabControlMain.SelectedTab = tabLevel;
             listLevels.SelectedItem = target;
         }
 
@@ -508,6 +521,7 @@ namespace ChusanExplorer
 
         private void flushResultPage(object sender, EventArgs e)
         {
+            if (isLoading) return;
             tabResult.Hide();
 
             refreshResultPageImages();
@@ -583,7 +597,7 @@ namespace ChusanExplorer
                 ));
             }
 
-            tabResult.Show();
+            if (tabControlMain.SelectedTab == tabResult) tabResult.Show();
             flusherResultPage.Enabled = false;
         }
 
@@ -594,6 +608,99 @@ namespace ChusanExplorer
                 if (sender == checkRecommandLvlNew) checkRecommandLvlPlayed.Checked = false;
                 else checkRecommandLvlNew.Checked = false;
             }
+        }
+        #endregion
+
+        #region tab items
+        bool playerItemSetDirty, playerItemPoolDirty;
+        public string ItemSortType => chooseItemSort.Text;
+        void InitEventsItem()
+        {
+            UIEvents.PackChoiceChanged += (Pack pack) =>
+            {
+                updatePlayerItemSource();
+                UIEvents.RefreshPlayerItemPool.Invoke();
+            };
+            UIEvents.RefreshPlayerItemSet += () =>
+            {
+                playerItemSetDirty = true;
+                flusherPlayerItems.Enabled = true;
+            };
+            UIEvents.RefreshPlayerItemPool += () =>
+            {
+                playerItemPoolDirty = true;
+                flusherPlayerItems.Enabled = true;
+            };
+            UIEvents.RefreshPlayerItems += () =>
+            {
+                playerItemSetDirty = true;
+                playerItemPoolDirty = true;
+                flusherPlayerItems.Enabled = true;
+            };
+            UIEvents.PlayerItemSelect += (BaseItem item) =>
+            {
+                foreach (var i in poolPlayerItems.Controls)
+                {
+                    var choice = i as PlayerItemUnit;
+                    choice.SetChecked(choice.item == item);
+                }
+            };
+        }
+        void updatePlayerItemSource()
+        {
+            var oldDescrip = (ItemDescriptor)chooseItemType.SelectedItem;
+            chooseItemType.DataSource = ItemDescriptor.choices.Where(d => d.GetItems(Selected.pack).Count() > 0).ToList();
+            if (oldDescrip != null) chooseItemType.SelectedItem = oldDescrip;
+        }
+        void updatePlayerCurrentItems()
+        {
+            var plr = Selected.player;
+            imgNamePlate.Image = imgMapIcon.Image = imgSystemVoice.Image = null;
+            if (plr != null)
+            {
+                var p = plr.itemProfile;
+                imgNamePlate.Image = Storage.NamePlate.TryGet(p.NamePlate)?.image.Image;
+                imgSystemVoice.Image = Storage.SystemVoice.TryGet(p.SystemVoice)?.image.Image;
+                imgMapIcon.Image = Storage.MapIcon.TryGet(p.MapIcon)?.image.Image;
+            }
+            labelTrophy.Text = Storage.Trophy.TryGet(plr.itemProfile.Trophy)?.name ?? "寄";
+            playerItemSetDirty = false;
+        }
+        void updatePlayerItemChoices()
+        {
+            poolPlayerItems.Hide();
+            poolPlayerItems.Controls.Clear();
+            var descrip = (ItemDescriptor)chooseItemType.SelectedItem;
+            if (descrip == null || Selected.player == null) return;
+            var data = descrip.GetItems(Selected.pack);
+            if (!checkItemShowNotOwned.Checked)
+            {
+                var owned = descrip.getterPlayerSet();
+                data = data.Where(i => owned.ContainsKey(i.id));
+            }
+            data = data.Where(i => i.name.Contains(textItemSearch.Text));
+            data = data.OrderBy(i => i.SortKeyInner);
+            foreach (var item in data)
+            {
+                var choice = new PlayerItemUnit(item);
+                poolPlayerItems.Controls.Add(choice);
+            }
+            UIEvents.PlayerItemSelect.Invoke(descrip.getterStorage().TryGet(descrip.getterPlayerChoice()));
+
+            poolPlayerItems.Show();
+            playerItemPoolDirty = false;
+        }
+        private void flushPlayerItems(object sender, EventArgs e)
+        {
+            if (isLoading) return;
+            if (playerItemSetDirty) updatePlayerCurrentItems();
+            if (playerItemPoolDirty) updatePlayerItemChoices();
+            flusherPlayerItems.Enabled = false;
+        }
+
+        private void playerItemFilterChanged(object sender, EventArgs e)
+        {
+            UIEvents.RefreshPlayerItemPool.Invoke();
         }
         #endregion
     }

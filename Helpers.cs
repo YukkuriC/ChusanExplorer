@@ -31,6 +31,14 @@ namespace ChusanExplorer
 
         public static Comparison<PlayerLevelResult> levelRatingDec = (PlayerLevelResult a, PlayerLevelResult b) => b.Rating > a.Rating ? 1 : b.Rating == a.Rating ? 0 : -1;
 
+        public static IDStorage<T> IDListToDict<T>(IEnumerable<T> raw) where T : IDObject
+        {
+            var res = new IDStorage<T>();
+            foreach (var i in raw) res.Push(i);
+            return res;
+        }
+
+        #region xml
         public static XmlNode GetDataFromFolder(DirectoryInfo dir)
         {
             var xmlFiles = dir.GetFiles("*.xml");
@@ -44,5 +52,6 @@ namespace ChusanExplorer
         public static string Get(this XmlNode rootNode, string path) => rootNode.SelectSingleNode(path)?.InnerText;
         public static int GetId(this XmlNode rootNode) => Convert.ToInt32(rootNode.Get("name/id"));
         public static string GetName(this XmlNode rootNode) => rootNode.Get("name/str");
+        #endregion
     }
 }

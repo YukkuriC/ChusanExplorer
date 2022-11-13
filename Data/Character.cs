@@ -141,6 +141,8 @@ namespace ChusanExplorer
             if (images.Count == 0) throw new Exception($"角色无可用立绘 ({id})");
             #endregion
         }
+
+        public override string ToString() => DisplayText;
     }
 
     public static class CharacterListLoader
