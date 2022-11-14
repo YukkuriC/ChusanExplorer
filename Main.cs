@@ -698,6 +698,17 @@ namespace ChusanExplorer
             flusherPlayerItems.Enabled = false;
         }
 
+        public bool itemPoolShowImages => checkItemShowImages.Checked;
+        private void checkItemShowImages_CheckedChanged(object sender, EventArgs e)
+        {
+            poolPlayerItems.Hide();
+            foreach(var i in poolPlayerItems.Controls)
+            {
+                (i as PlayerItemUnit).Init();
+            }
+            poolPlayerItems.Show();
+        }
+
         private void playerItemFilterChanged(object sender, EventArgs e)
         {
             UIEvents.RefreshPlayerItemPool.Invoke();

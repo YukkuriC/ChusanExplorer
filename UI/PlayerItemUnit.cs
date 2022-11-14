@@ -23,9 +23,15 @@ namespace ChusanExplorer
             item = source;
             radioChoose.Text = item.name;
 
-            var img = item.image?.Image;
-            if (img != null)
+            Init();
+        }
+        public void Init()
+        {
+            if (Main.instance.itemPoolShowImages && item.image?.Image != null)
             {
+                var img = item.image.Image;
+                imgMain.Show();
+                radioChoose.AutoSize = false;
                 imgMain.Image = img;
                 radioChoose.Width = imgMain.Width = (int)Math.Round(img.Width * imageShrinkRatio);
                 imgMain.Height = (int)Math.Round(img.Height * imageShrinkRatio);

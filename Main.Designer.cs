@@ -158,6 +158,8 @@
             this.imgNamePlate = new System.Windows.Forms.PictureBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkItemShowImages = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -208,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).BeginInit();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -1570,7 +1573,7 @@
             this.tableLayoutPanel5.Controls.Add(this.chooseItemType, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.textItemSearch, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.checkItemShowNotOwned, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 3);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 11);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
@@ -1645,11 +1648,10 @@
             // checkItemShowNotOwned
             // 
             this.checkItemShowNotOwned.AutoSize = true;
-            this.tableLayoutPanel5.SetColumnSpan(this.checkItemShowNotOwned, 2);
             this.checkItemShowNotOwned.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkItemShowNotOwned.Location = new System.Drawing.Point(3, 75);
+            this.checkItemShowNotOwned.Location = new System.Drawing.Point(3, 3);
             this.checkItemShowNotOwned.Name = "checkItemShowNotOwned";
-            this.checkItemShowNotOwned.Size = new System.Drawing.Size(266, 21);
+            this.checkItemShowNotOwned.Size = new System.Drawing.Size(130, 21);
             this.checkItemShowNotOwned.TabIndex = 9;
             this.checkItemShowNotOwned.Text = "显示未获得的道具";
             this.checkItemShowNotOwned.UseVisualStyleBackColor = true;
@@ -1731,6 +1733,35 @@
             // 
             this.flusherPlayerItems.Tick += new System.EventHandler(this.flushPlayerItems);
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel6, 2);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.checkItemShowNotOwned, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.checkItemShowImages, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 72);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(272, 27);
+            this.tableLayoutPanel6.TabIndex = 9;
+            // 
+            // checkItemShowImages
+            // 
+            this.checkItemShowImages.AutoSize = true;
+            this.checkItemShowImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkItemShowImages.Location = new System.Drawing.Point(139, 3);
+            this.checkItemShowImages.Name = "checkItemShowImages";
+            this.checkItemShowImages.Size = new System.Drawing.Size(130, 21);
+            this.checkItemShowImages.TabIndex = 10;
+            this.checkItemShowImages.Text = "显示图片";
+            this.checkItemShowImages.UseVisualStyleBackColor = true;
+            this.checkItemShowImages.CheckedChanged += new System.EventHandler(this.checkItemShowImages_CheckedChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1806,6 +1837,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).EndInit();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1941,6 +1974,8 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox textItemSearch;
         private System.Windows.Forms.CheckBox checkItemShowNotOwned;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.CheckBox checkItemShowImages;
     }
 }
 

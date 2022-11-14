@@ -24,13 +24,7 @@ namespace ChusanExplorer
             highestRating = Convert.ToInt32(r["highest_rating"]);
             chara = Convert.ToInt32(r["character_id"]);
             charaIllust = Convert.ToInt32(r["chara_illust_id"]);
-            itemProfile = new PlayerItemProfile
-            {
-                SystemVoice = Convert.ToInt32(r["voice_id"]),
-                NamePlate = Convert.ToInt32(r["nameplate_id"]),
-                Trophy = Convert.ToInt32(r["trophy_id"]),
-                MapIcon = Convert.ToInt32(r["map_icon_id"]),
-            };
+            itemProfile = PlayerItemProfile.FromDB(r);
         }
         public override string ToString() => $"#{id} {name}";
 

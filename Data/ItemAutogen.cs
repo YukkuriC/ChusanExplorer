@@ -1,4 +1,7 @@
-﻿namespace ChusanExplorer
+﻿using System;
+using System.Data.SQLite;
+
+namespace ChusanExplorer
 {
     public partial class ItemDescriptor
     {
@@ -73,5 +76,12 @@
         public int Trophy;
         public int MapIcon;
         public int SystemVoice;
+        public static PlayerItemProfile FromDB(SQLiteDataReader r) => new PlayerItemProfile
+        {
+            NamePlate = Convert.ToInt32(r["nameplate_id"]),
+            Trophy = Convert.ToInt32(r["trophy_id"]),
+            MapIcon = Convert.ToInt32(r["map_icon_id"]),
+            SystemVoice = Convert.ToInt32(r["voice_id"]),
+        };
     }
 }
