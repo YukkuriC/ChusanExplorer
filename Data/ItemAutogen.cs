@@ -50,7 +50,7 @@ namespace ChusanExplorer
         };
         public static IDStorage<ItemDescriptor> map = Helpers.IDListToDict(choices);
     }
-    
+
     public static partial class Storage
     {
         public static IDStorage<BaseItem> NamePlate = new IDStorage<BaseItem>();
@@ -58,7 +58,7 @@ namespace ChusanExplorer
         public static IDStorage<BaseItem> MapIcon = new IDStorage<BaseItem>();
         public static IDStorage<BaseItem> SystemVoice = new IDStorage<BaseItem>();
     }
-    
+
     public partial class Pack
     {
         public void LoadItems()

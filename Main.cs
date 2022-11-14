@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChusanExplorer
@@ -702,7 +698,7 @@ namespace ChusanExplorer
         private void checkItemShowImages_CheckedChanged(object sender, EventArgs e)
         {
             poolPlayerItems.Hide();
-            foreach(var i in poolPlayerItems.Controls)
+            foreach (var i in poolPlayerItems.Controls)
             {
                 (i as PlayerItemUnit).Init();
             }

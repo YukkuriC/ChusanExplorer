@@ -36,14 +36,14 @@ namespace ChusanExplorer
         };
         public static IDStorage<ItemDescriptor> map = Helpers.IDListToDict(choices);
     }
-    
+
     public static partial class Storage
     {
 <#for(int i=0;i<N;i++){#>
         public static IDStorage<BaseItem> <#=names[i]#> = new IDStorage<BaseItem>();
 <#}#>
     }
-    
+
     public partial class Pack
     {
         public void LoadItems()
