@@ -54,6 +54,7 @@ namespace ChusanExplorer
             CharacterListLoader.Init();
             MusicLevelLoader.Init();
             DBLoader.Init();
+            ImageLRU.Init();
         }
 
         public void BindEvents()
@@ -91,6 +92,7 @@ namespace ChusanExplorer
         }
         #endregion
 
+        #region frame
         private void choosePlayer_SelectedIndexChanged(object sender, EventArgs e)
         {
             var plr = (Player)choosePlayer.SelectedItem;
@@ -108,6 +110,17 @@ namespace ChusanExplorer
             UIEvents.PackChoiceChanged.Invoke(Selected.pack);
             UIEvents.RefreshResultPage.Invoke();
         }
+
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ImageLRU.TryRelease();
+        }
+        #endregion
+
+        #region interfaces
+        public string ItemSortType => chooseItemSort.Text;
+        public int CurrentTab => tabControlMain.SelectedIndex;
+        #endregion
 
         #region tab chara
         void InitEventsChara()
@@ -609,7 +622,6 @@ namespace ChusanExplorer
 
         #region tab items
         bool playerItemSetDirty, playerItemPoolDirty;
-        public string ItemSortType => chooseItemSort.Text;
         void InitEventsItem()
         {
             UIEvents.PackChoiceChanged += (Pack pack) =>
@@ -676,6 +688,7 @@ namespace ChusanExplorer
             }
             data = data.Where(i => i.name.Contains(textItemSearch.Text));
             data = data.OrderBy(i => i.SortKeyInner);
+            data = data.Take(1000);
             foreach (var item in data)
             {
                 var choice = new PlayerItemUnit(item);
@@ -692,6 +705,7 @@ namespace ChusanExplorer
             if (playerItemSetDirty) updatePlayerCurrentItems();
             if (playerItemPoolDirty) updatePlayerItemChoices();
             flusherPlayerItems.Enabled = false;
+            ImageLRU.TryRelease();
         }
 
         public bool itemPoolShowImages => checkItemShowImages.Checked;

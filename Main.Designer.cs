@@ -1,4 +1,4 @@
-﻿namespace ChusanExplorer
+namespace ChusanExplorer
 {
     partial class Main
     {
@@ -1163,6 +1163,7 @@
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(944, 572);
             this.tabControlMain.TabIndex = 5;
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
             // tabResult
             // 
