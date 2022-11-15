@@ -99,6 +99,7 @@ namespace ChusanExplorer
             Selected.player = plr;
             plr.InitAdvance();
             InitComponentData();
+            currentItemProfile = plr.itemProfile.Clone();
             UIEvents.PlayerCharaProfileChanged.Invoke();
             UIEvents.RefreshResultPage.Invoke();
             UIEvents.RefreshPlayerItems.Invoke();
@@ -622,6 +623,7 @@ namespace ChusanExplorer
 
         #region tab items
         bool playerItemSetDirty, playerItemPoolDirty;
+        PlayerItemProfile currentItemProfile;
         void InitEventsItem()
         {
             UIEvents.PackChoiceChanged += (Pack pack) =>
@@ -647,11 +649,13 @@ namespace ChusanExplorer
             };
             UIEvents.PlayerItemSelect += (BaseItem item) =>
             {
+                currentItemProfile.fields[((ItemDescriptor)chooseItemType.SelectedItem).nameField] = item.id;
                 foreach (var i in poolPlayerItems.Controls)
                 {
                     var choice = i as PlayerItemUnit;
                     choice.SetChecked(choice.item == item);
                 }
+                flusherPlayerItems.Enabled = true;
             };
         }
         void updatePlayerItemSource()
@@ -694,16 +698,23 @@ namespace ChusanExplorer
                 var choice = new PlayerItemUnit(item);
                 poolPlayerItems.Controls.Add(choice);
             }
-            UIEvents.PlayerItemSelect.Invoke(descrip.getterStorage().TryGet(descrip.getterPlayerChoice()));
+            UIEvents.PlayerItemSelect.Invoke(descrip.getterStorage().TryGet(currentItemProfile.fields[descrip.nameField]));
 
             poolPlayerItems.Show();
             playerItemPoolDirty = false;
+        }
+        void updatePlayerItemMinorUI()
+        {
+            var descrip = (ItemDescriptor)chooseItemType.SelectedItem;
+            btnSaveCurrentItem.Enabled = descrip != null && currentItemProfile.fields[descrip.nameField] != Selected.player.itemProfile.fields[descrip.nameField];
+            btnResetItemProfile.Enabled = btnSaveAllItems.Enabled = currentItemProfile != Selected.player.itemProfile;
         }
         private void flushPlayerItems(object sender, EventArgs e)
         {
             if (isLoading) return;
             if (playerItemSetDirty) updatePlayerCurrentItems();
             if (playerItemPoolDirty) updatePlayerItemChoices();
+            updatePlayerItemMinorUI();
             flusherPlayerItems.Enabled = false;
             ImageLRU.TryRelease();
         }
@@ -717,6 +728,44 @@ namespace ChusanExplorer
                 (i as PlayerItemUnit).Init();
             }
             poolPlayerItems.Show();
+        }
+
+        private void btnSaveCurrentItem_Click(object sender, EventArgs e)
+        {
+            var descrip = (ItemDescriptor)chooseItemType.SelectedItem;
+            var oldVal = Selected.player.itemProfile.fields[descrip.nameField];
+            var newVal = currentItemProfile.fields[descrip.nameField];
+            if (oldVal != newVal)
+            {
+                var sql = $"update chusan_user_data set {descrip.nameSQL}={newVal} where id={Selected.player.id}";
+                DBLoader.Write(sql);
+                Selected.player.itemProfile.fields[descrip.nameField] = currentItemProfile.fields[descrip.nameField];
+            }
+            UIEvents.RefreshPlayerItemSet.Invoke();
+        }
+
+        private void btnSaveAllItems_Click(object sender, EventArgs e)
+        {
+            var pool = new List<string>();
+            foreach (var descrip in ItemDescriptor.choices)
+            {
+                var oldVal = Selected.player.itemProfile.fields[descrip.nameField];
+                var newVal = currentItemProfile.fields[descrip.nameField];
+                if (oldVal != newVal) pool.Add($"{descrip.nameSQL}={newVal}");
+            }
+            if (pool.Count > 0)
+            {
+                var sql = $"update chusan_user_data set {string.Join(",", pool)} where id={Selected.player.id}";
+                DBLoader.Write(sql);
+                Selected.player.itemProfile = currentItemProfile.Clone();
+            }
+            UIEvents.RefreshPlayerItemSet.Invoke();
+        }
+
+        private void btnResetItemProfile_Click(object sender, EventArgs e)
+        {
+            currentItemProfile = Selected.player.itemProfile.Clone();
+            flusherPlayerItems.Enabled = true;
         }
 
         private void playerItemFilterChanged(object sender, EventArgs e)

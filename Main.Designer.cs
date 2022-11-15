@@ -148,7 +148,9 @@ namespace ChusanExplorer
             this.chooseItemType = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
             this.textItemSearch = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.checkItemShowNotOwned = new System.Windows.Forms.CheckBox();
+            this.checkItemShowImages = new System.Windows.Forms.CheckBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.poolPlayerItems = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -158,8 +160,10 @@ namespace ChusanExplorer
             this.imgNamePlate = new System.Windows.Forms.PictureBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkItemShowImages = new System.Windows.Forms.CheckBox();
+            this.btnSaveCurrentItem = new System.Windows.Forms.Button();
+            this.btnSaveAllItems = new System.Windows.Forms.Button();
+            this.btnResetItemProfile = new System.Windows.Forms.Button();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -205,12 +209,13 @@ namespace ChusanExplorer
             this.tabVisuals.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -1555,6 +1560,7 @@ namespace ChusanExplorer
             // 
             // groupBox16
             // 
+            this.groupBox16.Controls.Add(this.tableLayoutPanel7);
             this.groupBox16.Controls.Add(this.tableLayoutPanel5);
             this.groupBox16.Location = new System.Drawing.Point(646, 3);
             this.groupBox16.Name = "groupBox16";
@@ -1582,7 +1588,7 @@ namespace ChusanExplorer
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(272, 99);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(272, 96);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // chooseItemSort
@@ -1646,17 +1652,47 @@ namespace ChusanExplorer
             this.textItemSearch.TabIndex = 6;
             this.textItemSearch.TextChanged += new System.EventHandler(this.playerItemFilterChanged);
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel6, 2);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.checkItemShowNotOwned, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.checkItemShowImages, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 72);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(272, 24);
+            this.tableLayoutPanel6.TabIndex = 9;
+            // 
             // checkItemShowNotOwned
             // 
             this.checkItemShowNotOwned.AutoSize = true;
             this.checkItemShowNotOwned.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkItemShowNotOwned.Location = new System.Drawing.Point(3, 3);
             this.checkItemShowNotOwned.Name = "checkItemShowNotOwned";
-            this.checkItemShowNotOwned.Size = new System.Drawing.Size(130, 21);
+            this.checkItemShowNotOwned.Size = new System.Drawing.Size(130, 18);
             this.checkItemShowNotOwned.TabIndex = 9;
             this.checkItemShowNotOwned.Text = "显示未获得的道具";
             this.checkItemShowNotOwned.UseVisualStyleBackColor = true;
             this.checkItemShowNotOwned.CheckedChanged += new System.EventHandler(this.playerItemFilterChanged);
+            // 
+            // checkItemShowImages
+            // 
+            this.checkItemShowImages.AutoSize = true;
+            this.checkItemShowImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkItemShowImages.Location = new System.Drawing.Point(139, 3);
+            this.checkItemShowImages.Name = "checkItemShowImages";
+            this.checkItemShowImages.Size = new System.Drawing.Size(130, 18);
+            this.checkItemShowImages.TabIndex = 10;
+            this.checkItemShowImages.Text = "显示图片";
+            this.checkItemShowImages.UseVisualStyleBackColor = true;
+            this.checkItemShowImages.CheckedChanged += new System.EventHandler(this.checkItemShowImages_CheckedChanged);
             // 
             // groupBox15
             // 
@@ -1734,34 +1770,58 @@ namespace ChusanExplorer
             // 
             this.flusherPlayerItems.Tick += new System.EventHandler(this.flushPlayerItems);
             // 
-            // tableLayoutPanel6
+            // btnSaveCurrentItem
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel6, 2);
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.checkItemShowNotOwned, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.checkItemShowImages, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 72);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(272, 27);
-            this.tableLayoutPanel6.TabIndex = 9;
+            this.btnSaveCurrentItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveCurrentItem.Location = new System.Drawing.Point(0, 0);
+            this.btnSaveCurrentItem.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveCurrentItem.Name = "btnSaveCurrentItem";
+            this.btnSaveCurrentItem.Size = new System.Drawing.Size(90, 21);
+            this.btnSaveCurrentItem.TabIndex = 1;
+            this.btnSaveCurrentItem.Text = "保存";
+            this.btnSaveCurrentItem.UseVisualStyleBackColor = true;
+            this.btnSaveCurrentItem.Click += new System.EventHandler(this.btnSaveCurrentItem_Click);
             // 
-            // checkItemShowImages
+            // btnSaveAllItems
             // 
-            this.checkItemShowImages.AutoSize = true;
-            this.checkItemShowImages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkItemShowImages.Location = new System.Drawing.Point(139, 3);
-            this.checkItemShowImages.Name = "checkItemShowImages";
-            this.checkItemShowImages.Size = new System.Drawing.Size(130, 21);
-            this.checkItemShowImages.TabIndex = 10;
-            this.checkItemShowImages.Text = "显示图片";
-            this.checkItemShowImages.UseVisualStyleBackColor = true;
-            this.checkItemShowImages.CheckedChanged += new System.EventHandler(this.checkItemShowImages_CheckedChanged);
+            this.btnSaveAllItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveAllItems.Location = new System.Drawing.Point(90, 0);
+            this.btnSaveAllItems.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveAllItems.Name = "btnSaveAllItems";
+            this.btnSaveAllItems.Size = new System.Drawing.Size(90, 21);
+            this.btnSaveAllItems.TabIndex = 2;
+            this.btnSaveAllItems.Text = "保存全部";
+            this.btnSaveAllItems.UseVisualStyleBackColor = true;
+            this.btnSaveAllItems.Click += new System.EventHandler(this.btnSaveAllItems_Click);
+            // 
+            // btnResetItemProfile
+            // 
+            this.btnResetItemProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResetItemProfile.Location = new System.Drawing.Point(180, 0);
+            this.btnResetItemProfile.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetItemProfile.Name = "btnResetItemProfile";
+            this.btnResetItemProfile.Size = new System.Drawing.Size(92, 21);
+            this.btnResetItemProfile.TabIndex = 3;
+            this.btnResetItemProfile.Text = "重置";
+            this.btnResetItemProfile.UseVisualStyleBackColor = true;
+            this.btnResetItemProfile.Click += new System.EventHandler(this.btnResetItemProfile_Click);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.Controls.Add(this.btnSaveCurrentItem, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnResetItemProfile, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnSaveAllItems, 1, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(6, 107);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(272, 21);
+            this.tableLayoutPanel7.TabIndex = 11;
             // 
             // Main
             // 
@@ -1833,13 +1893,14 @@ namespace ChusanExplorer
             this.groupBox16.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1977,6 +2038,10 @@ namespace ChusanExplorer
         private System.Windows.Forms.CheckBox checkItemShowNotOwned;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox checkItemShowImages;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button btnSaveCurrentItem;
+        private System.Windows.Forms.Button btnResetItemProfile;
+        private System.Windows.Forms.Button btnSaveAllItems;
     }
 }
 

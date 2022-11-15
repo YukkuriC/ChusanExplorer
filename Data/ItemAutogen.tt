@@ -26,11 +26,12 @@ namespace ChusanExplorer
             new ItemDescriptor
             {
                 id = <#=types[i]#>,
-                name = "<#=namesVerbose[i]#>",
+                nameVerbose = "<#=namesVerbose[i]#>",
+                nameField = "<#=names[i]#>",
+                nameSQL = "<#=sqlFields[i]#>",
                 getterStorage = () => Storage.<#=names[i]#>,
                 getterPack = p => p.<#=namesPack[i]#>,
                 getterPlayerSet = () => Selected.player.my<#=names[i]#>,
-                getterPlayerChoice = () => Selected.player.itemProfile.<#=names[i]#>,
             },
 <#}#>
         };
@@ -57,7 +58,7 @@ namespace ChusanExplorer
     public partial class PlayerItemProfile
     {
 <#for(int i=0;i<N;i++){#>
-        public int <#=names[i]#>;
+        public int <#=names[i]#> { get => fields["<#=names[i]#>"]; set => fields["<#=names[i]#>"] = value; }
 <#}#>
         public static PlayerItemProfile FromDB(SQLiteDataReader r) => new PlayerItemProfile
         {

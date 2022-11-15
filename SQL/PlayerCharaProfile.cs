@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace ChusanExplorer
 {
@@ -32,7 +31,7 @@ namespace ChusanExplorer
         }
     }
 
-    public class PlayerCharaProfile : ICloneable
+    public class PlayerCharaProfile
     {
         public static string[] SQLFields = new string[] { "level", "ex_max_lv", "play_count", "friendship_exp", "assign_illust" };
         public int[] SQLValues
@@ -64,7 +63,6 @@ namespace ChusanExplorer
         }
 
         public PlayerCharaProfile Clone() => (PlayerCharaProfile)MemberwiseClone();
-        object ICloneable.Clone() => Clone();
 
         public static PlayerCharaProfile CreateDefault(int initIllustId) => new PlayerCharaProfile
         {

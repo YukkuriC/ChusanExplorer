@@ -37,9 +37,8 @@ namespace ChusanExplorer
     {
         public Func<Pack, IEnumerable<BaseItem>> getterPack;
         public Func<ItemGroup> getterPlayerSet;
-        public Func<int> getterPlayerChoice;
         public Func<IDStorage<BaseItem>> getterStorage;
-        public string name;
+        public string nameVerbose, nameField, nameSQL;
 
         public IEnumerable<BaseItem> GetItems(Pack pack)
         {
@@ -47,11 +46,33 @@ namespace ChusanExplorer
             return getterPack(pack);
         }
 
-        public override string ToString() => name;
+        public override string ToString() => nameVerbose;
     }
 
     public partial class PlayerItemProfile
     {
+        public Dictionary<string, int> fields;
+        public PlayerItemProfile()
+        {
+            fields = new Dictionary<string, int>();
+        }
+
+        public PlayerItemProfile Clone() => new PlayerItemProfile { fields = new Dictionary<string, int>(fields) };
+
+        public static bool operator ==(PlayerItemProfile a, PlayerItemProfile b)
+        {
+            bool anull = (object)a == null,
+                bnull = (object)b == null;
+            if (anull) return bnull;
+            if (bnull) return false;
+            foreach (var pair in a.fields)
+            {
+                b.fields.TryGetValue(pair.Key, out var v);
+                if (v != pair.Value) return false;
+            }
+            return true;
+        }
+        public static bool operator !=(PlayerItemProfile a, PlayerItemProfile b) => !(a == b);
     }
 
     public static class ItemSortTypes
