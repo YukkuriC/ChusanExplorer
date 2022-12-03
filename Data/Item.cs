@@ -6,14 +6,18 @@ namespace ChusanExplorer
 {
     public class BaseItem : IDObject
     {
-        public string name;
+        public string name, descrip;
         public DDSImage image;
+        // 我弃疗，所有属性都堆基类里得了
+        public int rarity;
 
         public BaseItem(DirectoryInfo rootDir)
         {
             var root = Helpers.GetDataFromFolder(rootDir);
             id = Convert.ToInt32(root.Get("name/id"));
             name = root.Get("name/str");
+            rarity = Convert.ToInt32(root.Get("rareType") ?? "-1");
+            descrip = root.Get("explainText") ?? Config.NO_DESCRIP;
             var imageNode = root.SelectSingleNode("image/path");
             if (imageNode != null) image = new DDSImage(Path.Combine(rootDir.FullName, imageNode.InnerText));
         }

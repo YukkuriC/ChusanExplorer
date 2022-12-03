@@ -7,6 +7,18 @@ namespace ChusanExplorer
 {
     public static class Config
     {
+        public static readonly Color[] rarityColors = new Color[]
+        {
+            Color.White,
+            Color.LightGreen,
+            Color.LightBlue,
+            Color.HotPink,
+            Color.Orange,
+            Color.Gold,
+            Color.IndianRed,
+            Color.DarkRed,
+        };
+
         public static readonly Color[] levelColors = new Color[]
         {
             Color.Green,
@@ -16,6 +28,7 @@ namespace ChusanExplorer
         };
 
         public const string ALL = "(All)";
+        public const string NO_DESCRIP = "-";
 
         public static string DirA000 = "C:/Chunithm New Plus/app/data/A000";
         public static string DirOptions = "C:/Chunithm New Plus/option";

@@ -141,6 +141,10 @@ namespace ChusanExplorer
             this.lstB30 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabVisuals = new System.Windows.Forms.TabPage();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSaveCurrentItem = new System.Windows.Forms.Button();
+            this.btnResetItemProfile = new System.Windows.Forms.Button();
+            this.btnSaveAllItems = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.chooseItemSort = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -160,10 +164,7 @@ namespace ChusanExplorer
             this.imgNamePlate = new System.Windows.Forms.PictureBox();
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
-            this.btnSaveCurrentItem = new System.Windows.Forms.Button();
-            this.btnSaveAllItems = new System.Windows.Forms.Button();
-            this.btnResetItemProfile = new System.Windows.Forms.Button();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolTipGeneral = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -208,6 +209,7 @@ namespace ChusanExplorer
             this.groupBox11.SuspendLayout();
             this.tabVisuals.SuspendLayout();
             this.groupBox16.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -215,7 +217,6 @@ namespace ChusanExplorer
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripTextBox1
@@ -1564,10 +1565,63 @@ namespace ChusanExplorer
             this.groupBox16.Controls.Add(this.tableLayoutPanel5);
             this.groupBox16.Location = new System.Drawing.Point(646, 3);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(284, 162);
+            this.groupBox16.Size = new System.Drawing.Size(284, 148);
             this.groupBox16.TabIndex = 7;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "选项";
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.Controls.Add(this.btnSaveCurrentItem, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnResetItemProfile, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnSaveAllItems, 1, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(6, 107);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(272, 21);
+            this.tableLayoutPanel7.TabIndex = 11;
+            // 
+            // btnSaveCurrentItem
+            // 
+            this.btnSaveCurrentItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveCurrentItem.Location = new System.Drawing.Point(0, 0);
+            this.btnSaveCurrentItem.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveCurrentItem.Name = "btnSaveCurrentItem";
+            this.btnSaveCurrentItem.Size = new System.Drawing.Size(90, 21);
+            this.btnSaveCurrentItem.TabIndex = 1;
+            this.btnSaveCurrentItem.Text = "保存";
+            this.btnSaveCurrentItem.UseVisualStyleBackColor = true;
+            this.btnSaveCurrentItem.Click += new System.EventHandler(this.btnSaveCurrentItem_Click);
+            // 
+            // btnResetItemProfile
+            // 
+            this.btnResetItemProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResetItemProfile.Location = new System.Drawing.Point(180, 0);
+            this.btnResetItemProfile.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetItemProfile.Name = "btnResetItemProfile";
+            this.btnResetItemProfile.Size = new System.Drawing.Size(92, 21);
+            this.btnResetItemProfile.TabIndex = 3;
+            this.btnResetItemProfile.Text = "重置";
+            this.btnResetItemProfile.UseVisualStyleBackColor = true;
+            this.btnResetItemProfile.Click += new System.EventHandler(this.btnResetItemProfile_Click);
+            // 
+            // btnSaveAllItems
+            // 
+            this.btnSaveAllItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveAllItems.Location = new System.Drawing.Point(90, 0);
+            this.btnSaveAllItems.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveAllItems.Name = "btnSaveAllItems";
+            this.btnSaveAllItems.Size = new System.Drawing.Size(90, 21);
+            this.btnSaveAllItems.TabIndex = 2;
+            this.btnSaveAllItems.Text = "保存全部";
+            this.btnSaveAllItems.UseVisualStyleBackColor = true;
+            this.btnSaveAllItems.Click += new System.EventHandler(this.btnSaveAllItems_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -1666,7 +1720,7 @@ namespace ChusanExplorer
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(272, 24);
             this.tableLayoutPanel6.TabIndex = 9;
             // 
@@ -1697,9 +1751,9 @@ namespace ChusanExplorer
             // groupBox15
             // 
             this.groupBox15.Controls.Add(this.poolPlayerItems);
-            this.groupBox15.Location = new System.Drawing.Point(3, 164);
+            this.groupBox15.Location = new System.Drawing.Point(3, 151);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(930, 379);
+            this.groupBox15.Size = new System.Drawing.Size(930, 392);
             this.groupBox15.TabIndex = 6;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "可选列表";
@@ -1710,7 +1764,7 @@ namespace ChusanExplorer
             this.poolPlayerItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poolPlayerItems.Location = new System.Drawing.Point(3, 17);
             this.poolPlayerItems.Name = "poolPlayerItems";
-            this.poolPlayerItems.Size = new System.Drawing.Size(924, 359);
+            this.poolPlayerItems.Size = new System.Drawing.Size(924, 372);
             this.poolPlayerItems.TabIndex = 0;
             // 
             // groupBox14
@@ -1721,46 +1775,50 @@ namespace ChusanExplorer
             this.groupBox14.Controls.Add(this.imgNamePlate);
             this.groupBox14.Location = new System.Drawing.Point(3, 3);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(637, 162);
+            this.groupBox14.Size = new System.Drawing.Size(637, 148);
             this.groupBox14.TabIndex = 5;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "预览";
             // 
             // imgSystemVoice
             // 
-            this.imgSystemVoice.Location = new System.Drawing.Point(3, 20);
+            this.imgSystemVoice.Location = new System.Drawing.Point(3, 14);
             this.imgSystemVoice.Name = "imgSystemVoice";
             this.imgSystemVoice.Size = new System.Drawing.Size(200, 128);
             this.imgSystemVoice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgSystemVoice.TabIndex = 2;
             this.imgSystemVoice.TabStop = false;
+            this.imgSystemVoice.MouseHover += new System.EventHandler(this.playerItem_MouseHover);
             // 
             // labelTrophy
             // 
-            this.labelTrophy.Location = new System.Drawing.Point(343, 133);
+            this.labelTrophy.Location = new System.Drawing.Point(343, 127);
             this.labelTrophy.Name = "labelTrophy";
             this.labelTrophy.Size = new System.Drawing.Size(288, 15);
             this.labelTrophy.TabIndex = 4;
             this.labelTrophy.Text = "我是称号";
             this.labelTrophy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTrophy.MouseHover += new System.EventHandler(this.playerItem_MouseHover);
             // 
             // imgMapIcon
             // 
-            this.imgMapIcon.Location = new System.Drawing.Point(209, 20);
+            this.imgMapIcon.Location = new System.Drawing.Point(209, 14);
             this.imgMapIcon.Name = "imgMapIcon";
             this.imgMapIcon.Size = new System.Drawing.Size(128, 128);
             this.imgMapIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgMapIcon.TabIndex = 3;
             this.imgMapIcon.TabStop = false;
+            this.imgMapIcon.MouseHover += new System.EventHandler(this.playerItem_MouseHover);
             // 
             // imgNamePlate
             // 
-            this.imgNamePlate.Location = new System.Drawing.Point(343, 20);
+            this.imgNamePlate.Location = new System.Drawing.Point(343, 14);
             this.imgNamePlate.Name = "imgNamePlate";
             this.imgNamePlate.Size = new System.Drawing.Size(288, 114);
             this.imgNamePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgNamePlate.TabIndex = 1;
             this.imgNamePlate.TabStop = false;
+            this.imgNamePlate.MouseHover += new System.EventHandler(this.playerItem_MouseHover);
             // 
             // flusherResultPage
             // 
@@ -1770,58 +1828,10 @@ namespace ChusanExplorer
             // 
             this.flusherPlayerItems.Tick += new System.EventHandler(this.flushPlayerItems);
             // 
-            // btnSaveCurrentItem
+            // toolTipGeneral
             // 
-            this.btnSaveCurrentItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveCurrentItem.Location = new System.Drawing.Point(0, 0);
-            this.btnSaveCurrentItem.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSaveCurrentItem.Name = "btnSaveCurrentItem";
-            this.btnSaveCurrentItem.Size = new System.Drawing.Size(90, 21);
-            this.btnSaveCurrentItem.TabIndex = 1;
-            this.btnSaveCurrentItem.Text = "保存";
-            this.btnSaveCurrentItem.UseVisualStyleBackColor = true;
-            this.btnSaveCurrentItem.Click += new System.EventHandler(this.btnSaveCurrentItem_Click);
-            // 
-            // btnSaveAllItems
-            // 
-            this.btnSaveAllItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveAllItems.Location = new System.Drawing.Point(90, 0);
-            this.btnSaveAllItems.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSaveAllItems.Name = "btnSaveAllItems";
-            this.btnSaveAllItems.Size = new System.Drawing.Size(90, 21);
-            this.btnSaveAllItems.TabIndex = 2;
-            this.btnSaveAllItems.Text = "保存全部";
-            this.btnSaveAllItems.UseVisualStyleBackColor = true;
-            this.btnSaveAllItems.Click += new System.EventHandler(this.btnSaveAllItems_Click);
-            // 
-            // btnResetItemProfile
-            // 
-            this.btnResetItemProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnResetItemProfile.Location = new System.Drawing.Point(180, 0);
-            this.btnResetItemProfile.Margin = new System.Windows.Forms.Padding(0);
-            this.btnResetItemProfile.Name = "btnResetItemProfile";
-            this.btnResetItemProfile.Size = new System.Drawing.Size(92, 21);
-            this.btnResetItemProfile.TabIndex = 3;
-            this.btnResetItemProfile.Text = "重置";
-            this.btnResetItemProfile.UseVisualStyleBackColor = true;
-            this.btnResetItemProfile.Click += new System.EventHandler(this.btnResetItemProfile_Click);
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Controls.Add(this.btnSaveCurrentItem, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btnResetItemProfile, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btnSaveAllItems, 1, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(6, 107);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(272, 21);
-            this.tableLayoutPanel7.TabIndex = 11;
+            this.toolTipGeneral.AutomaticDelay = 0;
+            this.toolTipGeneral.ShowAlways = true;
             // 
             // Main
             // 
@@ -1891,6 +1901,7 @@ namespace ChusanExplorer
             this.groupBox11.ResumeLayout(false);
             this.tabVisuals.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1900,7 +1911,6 @@ namespace ChusanExplorer
             ((System.ComponentModel.ISupportInitialize)(this.imgSystemVoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMapIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNamePlate)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2042,6 +2052,7 @@ namespace ChusanExplorer
         private System.Windows.Forms.Button btnSaveCurrentItem;
         private System.Windows.Forms.Button btnResetItemProfile;
         private System.Windows.Forms.Button btnSaveAllItems;
+        public System.Windows.Forms.ToolTip toolTipGeneral;
     }
 }
 

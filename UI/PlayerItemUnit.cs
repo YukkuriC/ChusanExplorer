@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ChusanExplorer
@@ -15,6 +16,7 @@ namespace ChusanExplorer
             InitializeComponent();
             item = source;
             radioChoose.Text = item.name;
+            if (item.rarity >= 0) radioChoose.BackColor = Config.rarityColors[item.rarity];
 
             Init();
         }
@@ -56,6 +58,12 @@ namespace ChusanExplorer
             var shouldUpdate = !oldSelect && newSelect;
             oldSelect = newSelect;
             if (shouldUpdate) UIEvents.PlayerItemSelect.Invoke(item);
+        }
+
+        private void radioChoose_MouseHover(object sender, EventArgs e)
+        {
+            if (item.descrip != Config.NO_DESCRIP)
+                Main.instance.toolTipGeneral.Show(item.descrip, sender as Control);
         }
     }
 }

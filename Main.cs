@@ -671,11 +671,17 @@ namespace ChusanExplorer
             if (plr != null)
             {
                 var p = plr.itemProfile;
-                imgNamePlate.Image = Storage.NamePlate.TryGet(p.NamePlate)?.image.Image;
-                imgSystemVoice.Image = Storage.SystemVoice.TryGet(p.SystemVoice)?.image.Image;
-                imgMapIcon.Image = Storage.MapIcon.TryGet(p.MapIcon)?.image.Image;
+                BaseItem
+                    namePlate = Storage.NamePlate.TryGet(p.NamePlate),
+                    sysVoice = Storage.SystemVoice.TryGet(p.SystemVoice),
+                    mapIcon = Storage.MapIcon.TryGet(p.MapIcon),
+                    trophy = Storage.Trophy.TryGet(plr.itemProfile.Trophy);
+                imgNamePlate.Image = namePlate?.image.Image;
+                imgSystemVoice.Image = sysVoice?.image.Image;
+                imgMapIcon.Image = mapIcon?.image.Image;
+                labelTrophy.Text = trophy?.name ?? "寄";
+                labelTrophy.BackColor = Config.rarityColors[trophy?.rarity ?? 0];
             }
-            labelTrophy.Text = Storage.Trophy.TryGet(plr.itemProfile.Trophy)?.name ?? "寄";
             playerItemSetDirty = false;
         }
         void updatePlayerItemChoices()
@@ -766,6 +772,19 @@ namespace ChusanExplorer
         {
             currentItemProfile = Selected.player.itemProfile.Clone();
             flusherPlayerItems.Enabled = true;
+        }
+
+        private void playerItem_MouseHover(object sender, EventArgs e)
+        {
+            var p = Selected.player?.itemProfile;
+            if (p == null) return;
+            string tip = null;
+            if (sender == imgNamePlate) tip = Storage.NamePlate.TryGet(p.NamePlate)?.name;
+            else if (sender == imgSystemVoice) tip = Storage.SystemVoice.TryGet(p.SystemVoice)?.name;
+            else if (sender == imgMapIcon) tip = Storage.MapIcon.TryGet(p.MapIcon)?.name;
+            else if (sender == labelTrophy) tip = Storage.Trophy.TryGet(p.Trophy)?.descrip;
+            if (tip != null && tip != Config.NO_DESCRIP)
+                toolTipGeneral.Show(tip, sender as Control);
         }
 
         private void playerItemFilterChanged(object sender, EventArgs e)

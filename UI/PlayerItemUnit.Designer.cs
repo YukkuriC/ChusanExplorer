@@ -47,6 +47,7 @@
             this.radioChoose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioChoose.UseVisualStyleBackColor = true;
             this.radioChoose.CheckedChanged += new System.EventHandler(this.radioChoose_CheckedChanged);
+            this.radioChoose.MouseHover += new System.EventHandler(this.radioChoose_MouseHover);
             // 
             // imgMain
             // 
