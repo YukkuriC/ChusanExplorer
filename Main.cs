@@ -704,7 +704,6 @@ namespace ChusanExplorer
                 var choice = new PlayerItemUnit(item);
                 poolPlayerItems.Controls.Add(choice);
             }
-            UIEvents.PlayerItemSelect.Invoke(descrip.getterStorage().TryGet(currentItemProfile.fields[descrip.nameField]));
 
             poolPlayerItems.Show();
             playerItemPoolDirty = false;
@@ -714,6 +713,7 @@ namespace ChusanExplorer
             var descrip = (ItemDescriptor)chooseItemType.SelectedItem;
             btnSaveCurrentItem.Enabled = descrip != null && currentItemProfile.fields[descrip.nameField] != Selected.player.itemProfile.fields[descrip.nameField];
             btnResetItemProfile.Enabled = btnSaveAllItems.Enabled = currentItemProfile != Selected.player.itemProfile;
+            UIEvents.PlayerItemSelect.Invoke(descrip.getterStorage().TryGet(currentItemProfile.fields[descrip.nameField]));
         }
         private void flushPlayerItems(object sender, EventArgs e)
         {
