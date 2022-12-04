@@ -47,6 +47,8 @@ namespace ChusanExplorer
             this.labelPlayerCharaInfo = new System.Windows.Forms.Label();
             this.labelCharaInfoName = new System.Windows.Forms.LinkLabel();
             this.imgCharaIcon = new System.Windows.Forms.PictureBox();
+            this.contextMenuSaveImg = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.保存至ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.charaAltImageContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCharaInfoIllustrator = new System.Windows.Forms.Label();
@@ -165,6 +167,7 @@ namespace ChusanExplorer
             this.flusherResultPage = new System.Windows.Forms.Timer(this.components);
             this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
             this.toolTipGeneral = new System.Windows.Forms.ToolTip(this.components);
+            this.saveImgDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -174,6 +177,7 @@ namespace ChusanExplorer
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaIcon)).BeginInit();
+            this.contextMenuSaveImg.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -393,12 +397,27 @@ namespace ChusanExplorer
             // 
             // imgCharaIcon
             // 
+            this.imgCharaIcon.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgCharaIcon.Location = new System.Drawing.Point(272, 32);
             this.imgCharaIcon.Name = "imgCharaIcon";
             this.imgCharaIcon.Size = new System.Drawing.Size(128, 128);
             this.imgCharaIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgCharaIcon.TabIndex = 1;
             this.imgCharaIcon.TabStop = false;
+            // 
+            // contextMenuSaveImg
+            // 
+            this.contextMenuSaveImg.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.保存至ToolStripMenuItem});
+            this.contextMenuSaveImg.Name = "contextMenuSaveImg";
+            this.contextMenuSaveImg.Size = new System.Drawing.Size(122, 26);
+            // 
+            // 保存至ToolStripMenuItem
+            // 
+            this.保存至ToolStripMenuItem.Name = "保存至ToolStripMenuItem";
+            this.保存至ToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.保存至ToolStripMenuItem.Text = "保存至...";
+            this.保存至ToolStripMenuItem.Click += new System.EventHandler(this.clickSaveImage);
             // 
             // charaAltImageContainer
             // 
@@ -683,6 +702,7 @@ namespace ChusanExplorer
             // 
             // imgCharaBig
             // 
+            this.imgCharaBig.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgCharaBig.Location = new System.Drawing.Point(0, 25);
             this.imgCharaBig.Name = "imgCharaBig";
             this.imgCharaBig.Size = new System.Drawing.Size(512, 512);
@@ -951,6 +971,7 @@ namespace ChusanExplorer
             // imgMusicCover
             // 
             this.imgMusicCover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.imgMusicCover.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgMusicCover.Location = new System.Drawing.Point(3, 125);
             this.imgMusicCover.Name = "imgMusicCover";
             this.imgMusicCover.Size = new System.Drawing.Size(300, 300);
@@ -1498,6 +1519,7 @@ namespace ChusanExplorer
             // imgResultPlayerIcon
             // 
             this.imgResultPlayerIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgResultPlayerIcon.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgResultPlayerIcon.Location = new System.Drawing.Point(327, 17);
             this.imgResultPlayerIcon.Name = "imgResultPlayerIcon";
             this.imgResultPlayerIcon.Size = new System.Drawing.Size(80, 80);
@@ -1782,6 +1804,7 @@ namespace ChusanExplorer
             // 
             // imgSystemVoice
             // 
+            this.imgSystemVoice.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgSystemVoice.Location = new System.Drawing.Point(3, 14);
             this.imgSystemVoice.Name = "imgSystemVoice";
             this.imgSystemVoice.Size = new System.Drawing.Size(200, 128);
@@ -1802,6 +1825,7 @@ namespace ChusanExplorer
             // 
             // imgMapIcon
             // 
+            this.imgMapIcon.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgMapIcon.Location = new System.Drawing.Point(209, 14);
             this.imgMapIcon.Name = "imgMapIcon";
             this.imgMapIcon.Size = new System.Drawing.Size(128, 128);
@@ -1812,6 +1836,7 @@ namespace ChusanExplorer
             // 
             // imgNamePlate
             // 
+            this.imgNamePlate.ContextMenuStrip = this.contextMenuSaveImg;
             this.imgNamePlate.Location = new System.Drawing.Point(343, 14);
             this.imgNamePlate.Name = "imgNamePlate";
             this.imgNamePlate.Size = new System.Drawing.Size(288, 114);
@@ -1832,6 +1857,12 @@ namespace ChusanExplorer
             // 
             this.toolTipGeneral.AutomaticDelay = 0;
             this.toolTipGeneral.ShowAlways = true;
+            // 
+            // saveImgDialog
+            // 
+            this.saveImgDialog.DefaultExt = "png";
+            this.saveImgDialog.Filter = "PNG图片|*.png|所有文件|*.*";
+            this.saveImgDialog.Title = "保存图片";
             // 
             // Main
             // 
@@ -1857,6 +1888,7 @@ namespace ChusanExplorer
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCharaIcon)).EndInit();
+            this.contextMenuSaveImg.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2053,6 +2085,9 @@ namespace ChusanExplorer
         private System.Windows.Forms.Button btnResetItemProfile;
         private System.Windows.Forms.Button btnSaveAllItems;
         public System.Windows.Forms.ToolTip toolTipGeneral;
+        private System.Windows.Forms.ToolStripMenuItem 保存至ToolStripMenuItem;
+        public System.Windows.Forms.ContextMenuStrip contextMenuSaveImg;
+        private System.Windows.Forms.SaveFileDialog saveImgDialog;
     }
 }
 

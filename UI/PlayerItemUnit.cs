@@ -14,6 +14,8 @@ namespace ChusanExplorer
         public PlayerItemUnit(BaseItem source)
         {
             InitializeComponent();
+            imgMain.ContextMenuStrip = Main.instance.contextMenuSaveImg;
+
             item = source;
             radioChoose.Text = item.name;
             if (item.rarity >= 0) radioChoose.BackColor = Config.rarityColors[item.rarity];

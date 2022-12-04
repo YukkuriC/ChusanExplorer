@@ -116,6 +116,19 @@ namespace ChusanExplorer
         {
             ImageLRU.TryRelease();
         }
+
+        private void clickSaveImage(object sender, EventArgs e)
+        {
+            var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
+            if (imgBox == null) return;
+            saveImgDialog.FileName = "";
+            var saveRes = saveImgDialog.ShowDialog();
+            if (saveRes == DialogResult.OK)
+            {
+                var img = imgBox.Image as Bitmap;
+                img.Save(saveImgDialog.FileName);
+            }
+        }
         #endregion
 
         #region interfaces
