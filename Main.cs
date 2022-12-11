@@ -532,7 +532,7 @@ namespace ChusanExplorer
             var level = data.GetLevel();
             var txt = new LinkLabel
             {
-                Text = $"{prefix}[{data.Rating.ToString("0.00")}|{level.GetDisplayTag(MusicSortType.Result)}]{level.GetGeneralDisplay()}",
+                Text = $"{prefix}[{data.Rating.ToString("0.00")}|{data}]{level.GetGeneralDisplay()}",
                 AutoSize = true,
                 Margin = new Padding(0),
                 LinkBehavior = LinkBehavior.HoverUnderline,
@@ -611,13 +611,10 @@ namespace ChusanExplorer
                     AutoSize = true,
                 });
             }
-            for (var i = 0; i < PlayerRatingCalculator.r10Chosen.Count; i++)
+            for (var i = 0; i < PlayerRatingCalculator.r10.Count; i++)
             {
-                var res = PlayerRatingCalculator.r10Chosen[i];
-                lstR10.Controls.Add(genResultLink(
-                    res.isRecentScore ? "[R10]" : "[B40]",
-                    res
-                ));
+                var res = PlayerRatingCalculator.r10[i];
+                lstR10.Controls.Add(genResultLink("", res));
             }
 
             if (tabControlMain.SelectedTab == tabResult) tabResult.Show();

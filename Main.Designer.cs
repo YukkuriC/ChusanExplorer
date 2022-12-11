@@ -1533,10 +1533,10 @@ namespace ChusanExplorer
             this.labelRatingSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelRatingSummary.Location = new System.Drawing.Point(3, 17);
             this.labelRatingSummary.Name = "labelRatingSummary";
-            this.labelRatingSummary.Size = new System.Drawing.Size(215, 72);
+            this.labelRatingSummary.Size = new System.Drawing.Size(215, 60);
             this.labelRatingSummary.TabIndex = 0;
-            this.labelRatingSummary.Text = "Rating: 1145.14 (历史最高: 1919.81)\r\nB30: 1919\r\nR10: 6666\r\nB31-40: 7777\r\n保底Rating: 88" +
-    "88\r\n不推分最高Rating: 9999";
+            this.labelRatingSummary.Text = "Rating: 1145.14 (历史最高: 1919.81)\r\nB30: 1919\r\nR10: 6666\r\nB31-40: 7777\r\n不推分最高Rating:" +
+    " 9999";
             // 
             // groupBox10
             // 
