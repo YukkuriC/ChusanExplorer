@@ -14,7 +14,7 @@ namespace ChusanExplorer
             chara = character;
             profileInput = profile;
             profileEdit = profile?.Clone();
-            if (profileEdit.maxLevel == 0) profileEdit.maxLevel = 15;
+            if (profileEdit?.maxLevel == 0) profileEdit.maxLevel = 15;
             flushDisplay();
         }
 
