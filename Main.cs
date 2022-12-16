@@ -121,7 +121,7 @@ namespace ChusanExplorer
         {
             var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
             if (imgBox == null) return;
-            saveImgDialog.FileName = "";
+            saveImgDialog.FileName = $"{imgBox.Name}";
             var saveRes = saveImgDialog.ShowDialog();
             if (saveRes == DialogResult.OK)
             {
