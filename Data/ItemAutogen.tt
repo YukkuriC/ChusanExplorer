@@ -13,7 +13,9 @@ var namesVerbose = new string[N] {"名牌",         "称号",      "图标",    
 var    sqlFields = new string[N] {"nameplate_id", "trophy_id", "map_icon_id", "voice_id"    };
 #>
 using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 
 namespace ChusanExplorer
 {
@@ -47,6 +49,9 @@ namespace ChusanExplorer
 
     public partial class Pack
     {
+        public DirectoryInfo <#for(int i=0;i<N;i++){#><#if(i>0){#>, <#}#>dir<#=names[i]#><#}#>;
+        public List<BaseItem> <#for(int i=0;i<N;i++){#><#if(i>0){#>, <#}#><#=namesPack[i]#><#}#>;
+
         public void LoadItems()
         {
 <#for(int i=0;i<N;i++){#>

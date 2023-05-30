@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -8,12 +8,10 @@ namespace ChusanExplorer
     public partial class Pack
     {
         public DirectoryInfo root, dirChara, dirCharaImage, dirMusic;
-        public DirectoryInfo dirNamePlate, dirSystemVoice, dirTrophy, dirMapIcon;
         public string name;
 
         public List<Character> characters;
         public List<MusicLevel> levels;
-        public List<BaseItem> namePlates, trophies, mapIcons, systemVoices;
 
         public bool hasContent
         {

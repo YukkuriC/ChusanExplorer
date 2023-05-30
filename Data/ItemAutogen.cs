@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 
 namespace ChusanExplorer
 {
@@ -65,6 +67,9 @@ namespace ChusanExplorer
 
     public partial class Pack
     {
+        public DirectoryInfo dirNamePlate, dirTrophy, dirMapIcon, dirSystemVoice;
+        public List<BaseItem> namePlates, trophies, mapIcons, systemVoices;
+
         public void LoadItems()
         {
             loadItemInFolder(dirNamePlate, out namePlates, ref Storage.NamePlate);
