@@ -18,7 +18,11 @@ namespace ChusanExplorer
 
             item = source;
             radioChoose.Text = item.name;
-            if (item.rarity >= 0) radioChoose.BackColor = Config.rarityColors[item.rarity];
+            if (item.rarity >= 0)
+            {
+                if (item.rarity < Config.rarityColors.Length) radioChoose.BackColor = Config.rarityColors[item.rarity];
+                else radioChoose.BackColor = Color.Cyan;
+            }
 
             Init();
         }
