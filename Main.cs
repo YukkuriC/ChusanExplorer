@@ -70,8 +70,9 @@ namespace ChusanExplorer
             {
                 choosePlayer.Items.Clear();
                 choosePlayer.Items.AddRange(DBLoader.users.ToArray());
-                choosePlayer.SelectedIndex = 0;
                 choosePlayer.Enabled = choosePlayer.Items.Count > 0;
+                if (choosePlayer.Enabled)
+                    choosePlayer.SelectedIndex = 0;
             };
 
             InitEventsChara();
@@ -727,6 +728,7 @@ namespace ChusanExplorer
         }
         private void flushPlayerItems(object sender, EventArgs e)
         {
+            if (Selected.player == null) return;
             if (isLoading) return;
             if (playerItemSetDirty) updatePlayerCurrentItems();
             if (playerItemPoolDirty) updatePlayerItemChoices();
