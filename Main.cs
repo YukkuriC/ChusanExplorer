@@ -130,6 +130,13 @@ namespace ChusanExplorer
                 img.Save(saveImgDialog.FileName);
             }
         }
+
+        private void clickCopyImage(object sender, EventArgs e)
+        {
+            var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
+            if (imgBox == null) return;
+            Clipboard.SetImage(imgBox.Image);
+        }
         #endregion
 
         #region interfaces
