@@ -47,6 +47,7 @@ namespace ChusanExplorer
                     var data = Marshal.UnsafeAddrOfPinnedArrayElement(image.Data, 0);
                     bmp = new Bitmap(image.Width, image.Height, image.Stride, format, data);
                     bmp = new Bitmap(bmp);
+                    bmpBackend.Free();
                 }
             }
             catch (Exception e)
