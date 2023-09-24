@@ -79,6 +79,7 @@
     <Compile Include="Data\ISortableInList.cs" />
     <Compile Include="Data\Music.cs" />
     <Compile Include="Image\ImageLRU.cs" />
+    <Compile Include="Image\ImageOp.cs" />
     <Compile Include="SQL\ItemGroup.cs" />
     <Compile Include="Data\ItemAutogen.cs">
       <AutoGen>True</AutoGen>

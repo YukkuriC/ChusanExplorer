@@ -121,21 +121,20 @@ namespace ChusanExplorer
         private void clickSaveImage(object sender, EventArgs e)
         {
             var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
-            if (imgBox == null) return;
+            if (imgBox?.Image == null) return;
             saveImgDialog.FileName = $"{imgBox.Name}";
             var saveRes = saveImgDialog.ShowDialog();
             if (saveRes == DialogResult.OK)
             {
-                var img = imgBox.Image as Bitmap;
-                img.Save(saveImgDialog.FileName);
+                imgBox.Image.Save(saveImgDialog.FileName);
             }
         }
 
         private void clickCopyImage(object sender, EventArgs e)
         {
             var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
-            if (imgBox == null) return;
-            Clipboard.SetImage(imgBox.Image);
+            if (imgBox?.Image == null) return;
+            ImageOp.CopyImageToClipboard(imgBox.Image);
         }
         #endregion
 
