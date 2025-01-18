@@ -31,7 +31,7 @@ namespace ChusanExplorer
             var b64Seq = Convert.ToBase64String(pngData);
             var converted = ConvertHtmlToClipboardData($"<pre><img src='data:image/png;base64,{b64Seq}'/></pre>");
             dataObj.SetData(DataFormats.Html, converted);
-            //dataObj.SetData(DataFormats.Text, converted);
+            dataObj.SetData(DataFormats.Text, converted);
 
             // save
             Clipboard.SetDataObject(dataObj, true);

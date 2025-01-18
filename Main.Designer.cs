@@ -49,6 +49,7 @@ namespace ChusanExplorer
             this.imgCharaIcon = new System.Windows.Forms.PictureBox();
             this.contextMenuSaveImg = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.保存至ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制到剪贴板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.charaAltImageContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCharaInfoIllustrator = new System.Windows.Forms.Label();
@@ -168,7 +169,6 @@ namespace ChusanExplorer
             this.flusherPlayerItems = new System.Windows.Forms.Timer(this.components);
             this.toolTipGeneral = new System.Windows.Forms.ToolTip(this.components);
             this.saveImgDialog = new System.Windows.Forms.SaveFileDialog();
-            this.复制到剪贴板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabChara.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -412,14 +412,21 @@ namespace ChusanExplorer
             this.保存至ToolStripMenuItem,
             this.复制到剪贴板ToolStripMenuItem});
             this.contextMenuSaveImg.Name = "contextMenuSaveImg";
-            this.contextMenuSaveImg.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuSaveImg.Size = new System.Drawing.Size(149, 48);
             // 
             // 保存至ToolStripMenuItem
             // 
             this.保存至ToolStripMenuItem.Name = "保存至ToolStripMenuItem";
-            this.保存至ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存至ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.保存至ToolStripMenuItem.Text = "保存至...";
             this.保存至ToolStripMenuItem.Click += new System.EventHandler(this.clickSaveImage);
+            // 
+            // 复制到剪贴板ToolStripMenuItem
+            // 
+            this.复制到剪贴板ToolStripMenuItem.Name = "复制到剪贴板ToolStripMenuItem";
+            this.复制到剪贴板ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.复制到剪贴板ToolStripMenuItem.Text = "复制到剪贴板";
+            this.复制到剪贴板ToolStripMenuItem.Click += new System.EventHandler(this.clickCopyImage);
             // 
             // charaAltImageContainer
             // 
@@ -1865,13 +1872,6 @@ namespace ChusanExplorer
             this.saveImgDialog.DefaultExt = "png";
             this.saveImgDialog.Filter = "PNG图片|*.png|所有文件|*.*";
             this.saveImgDialog.Title = "保存图片";
-            // 
-            // 复制到剪贴板ToolStripMenuItem
-            // 
-            this.复制到剪贴板ToolStripMenuItem.Name = "复制到剪贴板ToolStripMenuItem";
-            this.复制到剪贴板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.复制到剪贴板ToolStripMenuItem.Text = "复制到剪贴板";
-            this.复制到剪贴板ToolStripMenuItem.Click += new System.EventHandler(this.clickCopyImage);
             // 
             // Main
             // 
