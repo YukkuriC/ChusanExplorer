@@ -122,7 +122,7 @@ namespace ChusanExplorer
         {
             var imgBox = contextMenuSaveImg.SourceControl as PictureBox;
             if (imgBox?.Image == null) return;
-            saveImgDialog.FileName = $"{imgBox.Name}";
+            saveImgDialog.FileName = Helpers.getImgName(imgBox);
             var saveRes = saveImgDialog.ShowDialog();
             if (saveRes == DialogResult.OK)
             {
@@ -205,6 +205,8 @@ namespace ChusanExplorer
             }
             imgCharaIcon.Image = grp.dds[2].Image;
             imgCharaBig.Image = grp.dds[0].Image;
+            Helpers.linkImgName(imgCharaIcon, grp.name);
+            Helpers.linkImgName(imgCharaBig, grp.name);
             grpCharaImgDescrip.Text = $"角色立绘: {grp.name}";
         }
 

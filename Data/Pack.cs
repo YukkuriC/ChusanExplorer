@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -133,6 +133,11 @@ namespace ChusanExplorer
             }
 
             return;
+        }
+        void loadAvatarAccessory(DirectoryInfo dir, out List<BaseItem> res, ref IDStorage<BaseItem> storage)
+        {
+            res = new List<BaseItem>();
+            // TODO
         }
 
         public override string ToString() => name;

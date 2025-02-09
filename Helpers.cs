@@ -34,6 +34,18 @@ namespace ChusanExplorer
             return res;
         }
 
+        #region image box names
+        static readonly Dictionary<PictureBox, string> linkedNames = new Dictionary<PictureBox, string>();
+        public static void linkImgName(PictureBox target, string name)
+        {
+            linkedNames[target] = name;
+        }
+        public static string getImgName(PictureBox box)
+        {
+            return linkedNames.TryGetValue(box, out var name) ? name : box.Name;
+        }
+        #endregion
+
         #region xml
         public static XmlNode GetDataFromFolder(DirectoryInfo dir)
         {
